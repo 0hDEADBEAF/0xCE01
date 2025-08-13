@@ -1,0 +1,8 @@
+[user]
+	email = {{ .email | quote }}
+	name = {{ .github_username | quote }}
+	signingkey = {{ .signing_key | quote }}
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true

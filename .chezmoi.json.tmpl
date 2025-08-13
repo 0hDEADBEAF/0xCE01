@@ -1,0 +1,12 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $github_username := promptStringOnce . "github_username" "Github username" -}}
+{{- $signing_key := promptStringOnce . "signing_key" "Signing key" -}}
+
+{
+    "data": {
+        "email": {{ $email | quote }},
+        "github_username": {{ $github_username | quote }},
+		"signing_key": {{ $signing_key | quote }}
+    }
+}
+
