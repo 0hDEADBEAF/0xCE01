@@ -264,7 +264,7 @@ local options = {
 	backup = false,
 	backupskip = "/tmp/*",
 	backupcopy = "auto",
-	backupdir = "$HOME/neovim_backup",
+	backupdir = "~/neovim_backup",
 	backupext = ".bak",
 	autowrite = false,
 	autowriteall = false,
@@ -274,7 +274,7 @@ local options = {
 	fsync = true,
 
 	-- 18. The swap file
-	directory = "$HOME/.local/sitate/nvim/swap//",
+	directory = "~/.local/state/nvim/swap//",
 	swapfile = true,
 	updatecount = 200,
 	updatetime = 4000,
