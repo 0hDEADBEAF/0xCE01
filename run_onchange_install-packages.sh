@@ -16,11 +16,8 @@ fi
 # Update yay packages
 yay
 
-# Install rust and set the default toolchain to stable 
-yay -Sy rustup
-rustup default stable
-
 # Install packages
+# git: Of course!
 # kitty: My favorite terminal
 # nvim: The best editor
 # librewolf-bin: The best browser (compiling from source takes hours so using the bin only)
@@ -33,6 +30,9 @@ rustup default stable
 # yazi: My favorite file manager
 # zsh: My favorite shell
 # fzf: A very nice tool :D
+# xcursor-hackneyed-light: My favorite cursor
+# rustup: To manage Rust toolchains & all
+# python: All my homies love Python!
 yay -Sy \
     kitty \
     nvim \
@@ -45,7 +45,13 @@ yay -Sy \
     eza \
     yazi \
 	zsh \
-	fzf
+	fzf \
+    xcursor-hackneyed-light \
+    rustup \
+    python
+
+# Setting default Rust toolchain to stable
+rustup default stable
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
