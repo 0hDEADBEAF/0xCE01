@@ -1,10 +1,10 @@
 # FONTS
 # -----
-font_family      family="Departure Mono"
+font_family      family="{{ .font_family }}"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
-font_size 14.0
+font_size {{ .terminal_font_size }}
 # force_ltr
 # symbol_map
 # narrow_symbols
@@ -19,8 +19,8 @@ disable_ligatures never
 
 # CURSOR
 # ------
-cursor #fabd2f
-cursor_text_color #a89984
+cursor #{{ .colorscheme.light_yellow }}
+cursor_text_color #{{ .colorscheme.fg4 }}
 cursor_shape beam
 cursor_shape_unfocused hollow
 cursor_beam_thickness 1.5
@@ -44,7 +44,7 @@ wheel_scroll_min_lines 1
 # MOUSE
 # -----
 mouse_hide_wait 3.0
-url_color #83a598
+url_color #{{ .colorscheme.light_blue }}
 url_style curly
 open_url_with default
 # url_prefixes
@@ -79,7 +79,7 @@ sync_to_monitor yes
 # ----
 enable_audio_bell no
 visual_bell_dureation 1.0
-visual_bell_color #fe8019
+visual_bell_color #{{ .colorscheme.light_orange }}
 window_alert_on_bell yes
 bell_on_tab "🔔 "
 command_on_bell none
@@ -99,9 +99,9 @@ window_margin_width 2
 window_padding_width 0
 # single_window_padding_width
 placement_strategy center
-active_border_color #fabd2f
-inactive_border_color #3c3836
-bell_border_color #fe8019
+active_border_color #{{ .colorscheme.light_yellow }}
+inactive_border_color #{{ .colorscheme.bg1 }}
+bell_border_color #{{ .colorscheme.light_orange }}
 inactive_text_alpha 1.0
 hide_window_decorations no
 window_logo_path none
@@ -139,8 +139,8 @@ confirm_os_window_close -1
 # tab_bar_margin_color
 
 # COLOR SCHEME
-foreground #ebdbb2
-background #282828
+foreground #{{ .colorscheme.fg1 }}
+background #{{ .colorscheme.bg0 }}
 background_opacity 0.8
 background_blur 3
 # transparent_background_colors
@@ -153,25 +153,25 @@ background_image none
 # dim_opacity
 # selection_foreground
 # selection_background
-color0 #282828
-color8 #928374
-color1 #cc241d
-color9 #fb4934
-color2 #98971a
-color10 #b8bb26
-color3 #d79921
-color11 #fabd2f
-color4 #458588
-color12 #83a598
-color5 #b16286
-color13 #d3869b
-color6 #689d6a
-color14 #8ec07c
-color7 #a89984
-color15 #ebdbb2
-mark1_foreground #ebdbb2
-mark1_background #3c3836
-mark2_foreground #d5c4a1
-mark2_background #504945
-mark3_foreground #bdae93
-mark3_background #665c54
+color0 #{{ .colorscheme.bg0 }}
+color8 #{{ .colorscheme.light_gray }}
+color1 #{{ .colorscheme.red }}
+color9 #{{ .colorscheme.light_red }}
+color2 #{{ .colorscheme.green }}
+color10 #{{ .colorscheme.light_green }}
+color3 #{{ .colorscheme.yellow }}
+color11 #{{ .colorscheme.light_yellow }}
+color4 #{{ .colorscheme.blue }}
+color12 #{{ .colorscheme.light_blue }}
+color5 #{{ .colorscheme.purple }}
+color13 #{{ .colorscheme.light_purple }}
+color6 #{{ .colorscheme.aqua }}
+color14 #{{ .colorscheme.light_aqua }}
+color7 #{{ .colorscheme.gray }}
+color15 #{{ .colorscheme.fg }}
+mark1_foreground #{{ .colorscheme.fg1 }}
+mark1_background #{{ .colorscheme.bg1 }}
+mark2_foreground #{{ .colorscheme.fg2 }}
+mark2_background #{{ .colorscheme.bg2 }}
+mark3_foreground #{{ .colorscheme.fg3 }}
+mark3_background #{{ .colorscheme.bg3 }}
