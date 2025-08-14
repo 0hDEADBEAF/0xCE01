@@ -1,12 +1,55 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $github_username := promptStringOnce . "github_username" "Github username" -}}
 {{- $signing_key := promptStringOnce . "signing_key" "Signing key" -}}
+{{- $cursor_size := promptIntOnce . "cursor_size" "Cursor size" -}}
+
 
 {
     "data": {
         "email": {{ $email | quote }},
         "github_username": {{ $github_username | quote }},
-		"signing_key": {{ $signing_key | quote }}
+		"signing_key": {{ $signing_key | quote }},
+		"cursor_size": {{ $cursor_size | quote }},
+		"keyboard": {
+		    "model": "pc105",
+		    "layout": "fr"
+		},
+		"terminal_font_size" : 14.0,
+		"mouse_sensitivity": 0.0,
+		"font_family": "Departure Mono",
+		"colorscheme" : {
+            "bg":           "282828",
+            "red":          "CC241D",
+            "green":        "98971A",
+            "yellow":       "D79921",
+            "blue":         "458588",
+            "purple":       "B16286",
+            "aqua":         "689D6A",
+            "gray":         "A89984",
+            "light_gray":   "928374",
+            "light_red":    "FB4934",
+            "light_green":  "B8BB26",
+            "light_yellow": "FABD2F",
+            "light_blue":   "83A598",
+            "light_purple": "D3869B",
+            "light_aqua":   "8EC07C",
+            "fg":           "EBDBB2",
+            "bg0_h":        "1D2021",
+            "bg0":          "282828",
+            "bg1":          "3C3836",
+            "bg2":          "504945",
+            "bg3":          "665C54",
+            "bg4":          "7C6F64",
+            "dark_gray":    "928374",
+            "orange":       "D65D0E",
+            "bg0_s":        "32302F",
+            "fg4":          "A89984",
+            "fg3":          "BDAE93",
+            "fg2":          "D5C4A1",
+            "fg1":          "EBDBB2",
+            "fg0":          "FBF1C7",
+            "light_orange": "FE8019"
+		}
     }
 }
 

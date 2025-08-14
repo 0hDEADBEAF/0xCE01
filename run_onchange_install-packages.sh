@@ -33,6 +33,12 @@ yay
 # xcursor-hackneyed-light: My favorite cursor
 # rustup: To manage Rust toolchains & all
 # python: All my homies love Python!
+# ags-hyprpanel-git: A nice tool for status bar & widgets
+# youtube-music-bin: A Youtube Music client with an ad blocker, downloader & a lot of plugins
+# less: A nice command to have!
+# otf-departure-mono: A nice looking old school font!
+# hyprlock: A nice lock screen software
+# wofi: An application launcher for wayland
 yay -Sy \
     kitty \
     nvim \
@@ -48,7 +54,13 @@ yay -Sy \
 	fzf \
     xcursor-hackneyed-light \
     rustup \
-    python
+    python \
+	ags-hyprpanel-git \
+	youtube-music-bin \
+	less \
+	otf-departure-mono \
+	hyprlock \
+	wofi
 
 # Setting default Rust toolchain to stable
 rustup default stable
