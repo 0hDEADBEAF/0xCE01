@@ -39,6 +39,13 @@ yay
 # otf-departure-mono: A nice looking old school font!
 # hyprlock: A nice lock screen software
 # wofi: An application launcher for wayland
+# btop: To get a nice overview of the system performance 
+# fastfetch: Just to make sure I'm using arch
+# chafa: Image output as ascii art
+# ddcutil: Brightness detection of external displays
+# directx-headers: GPU detection in WSL
+# imagemagick: Image output using sixel or kitty graphics protocol
+# torbrowser-launcher: Privacy at its best
 yay -Sy \
     kitty \
     nvim \
@@ -60,7 +67,13 @@ yay -Sy \
 	less \
 	otf-departure-mono \
 	hyprlock \
-	wofi
+	wofi \
+	btop \
+	fastfetch \
+	chafa \
+	ddcutil \
+	imagemagick \
+	torbrowser-launcher
 
 # Setting default Rust toolchain to stable
 rustup default stable
