@@ -84,3 +84,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Setup fzf for zsh
 zsh -c "source <(fzf --zsh)"
 
+# Enabling required services
+sudo systemctl enable bluetooth.service
+
