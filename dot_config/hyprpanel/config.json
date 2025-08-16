@@ -22,14 +22,12 @@
         "volume",
         "microphone",
         "bluetooth",
-        "network",
         "netstat",
-        "battery",
         "ram",
         "cpu",
-        "cputemp",
         "storage",
         "systray",
+        "battery",
         "clock",
         "notifications"
       ]
@@ -78,7 +76,7 @@
   "theme.bar.buttons.modules.netstat.enableBorder": false,
   "bar.customModules.netstat.dynamicIcon": true,
   "bar.customModules.netstat.rateUnit": "auto",
-  "bar.customModules.netstat.labelType": "full",
+  "bar.customModules.netstat.labelType": "in",
   "bar.customModules.weather.unit": "metric",
   "bar.clock.icon": "",
   "theme.bar.menus.monochrome": false,
@@ -459,12 +457,16 @@
   "theme.bar.buttons.modules.worldclock.icon": "#d3869b",
   "theme.bar.buttons.modules.worldclock.border": "#d3869b",
   "theme.bar.buttons.modules.power.enableBorder": true,
-  "theme.font.size": "1.0rem",
+  "theme.font.size": "0.8rem",
   "bar.workspaces.workspaceIconMap": {
     "1": "",
     "2": "",
     "3": "",
     "4": "",
     "5": ""
-  }
+  },
+  "bar.network.rightClick": "",
+  "bar.customModules.netstat.leftClick": "menu:network",
+  "bar.customModules.cpu.leftClick": "",
+  "bar.battery.hideLabelWhenFull": false
 }
