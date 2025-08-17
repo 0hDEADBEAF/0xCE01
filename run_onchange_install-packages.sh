@@ -33,6 +33,8 @@ yay
 # xcursor-hackneyed-light: My favorite cursor
 # rustup: To manage Rust toolchains & all
 # python: All my homies love Python!
+# python-pip: Python's package manager
+# python-requests: requests package (used to communicate with Youtube Music API server)
 # ags-hyprpanel-git: A nice tool for status bar & widgets
 # youtube-music-bin: A Youtube Music client with an ad blocker, downloader & a lot of plugins
 # less: A nice command to have!
@@ -62,6 +64,8 @@ yay -Sy \
     xcursor-hackneyed-light \
     rustup \
     python \
+	python-pip \
+	python-requests \
 	ags-hyprpanel-git \
 	youtube-music-bin \
 	less \
