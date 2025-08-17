@@ -8,7 +8,7 @@ local opts = {
 
 
 -- Settings Insert Mode keybindings
-vim.keymap.set("n", "<C-t>", ">>", opts)
-vim.keymap.set("n", "<C-r>", "<<", opts)
-vim.keymap.set("n", "<C-j>", "yyp", opts)
-vim.keymap.set("n", "<C-d>", "dd", opts)
+vim.keymap.set("n", "<C-t>", ">>", opts) -- Adds a level of tabulation to the current line
+vim.keymap.set("n", "<C-r>", "<<", opts) -- Removes a level of tabulation to the current line
+vim.keymap.set("n", "<C-j>", "yyp", opts) -- Copies the current line down
+vim.keymap.set("n", "<C-d>", "dd", opts) -- Removes the current line
