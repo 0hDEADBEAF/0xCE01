@@ -38,9 +38,16 @@ def get_monitor_info():
                     assert(pixel_per_cm_w == pixel_per_cm_h)
                     font_size = round(-1 / 8 * pixel_per_cm_w + 15)
                     hyprpanel_size = round(-1 / 120 * pixel_per_cm_w + 16 / 15, 1)
+                    if pixel_per_cm_w >= 32:
+                        cursor_size = 24
+                    elif pixel_per_cm_w >= 8:
+                        cursor_size = 36
+                    else:
+                        cursor_size = 48
                     result = {
                         "font": font_size,
-                        "hyprpanel": hyprpanel_size
+                        "hyprpanel": hyprpanel_size,
+                        "cursor_size": cursor_size
                     }
                     print(json.dumps(result))
                     return
