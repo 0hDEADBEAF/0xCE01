@@ -2,9 +2,14 @@
 {{- $github_username := promptStringOnce . "github_username" "Github username" -}}
 {{- $signing_key := promptStringOnce . "signing_key" "Signing key" -}}
 {{- $cursor_size := promptIntOnce . "cursor_size" "Cursor size" -}}
+{{- $bitwarden_access_token := promptStringOnce . "accessToken" "Bitwarden access token" -}}
 
 {
+    "bitwarden" : {
+        "unlock": "auto"
+    },
     "data": {
+        "accessToken": {{ $bitwarden_access_token | quote }},
         "sizes": {{ output "python" "set_sizes.py" }},
         "email": {{ $email | quote }},
         "github_username": {{ $github_username | quote }},
