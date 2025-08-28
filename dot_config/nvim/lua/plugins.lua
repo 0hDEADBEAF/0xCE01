@@ -78,7 +78,18 @@ require("lazy").setup({
 		opts = {
 			ensure_installed = {
 				-- Language specific LSP here
+				"clangd"
 			}
 		}
-	}
+	},
+	-- Clangd configuration
+    {
+        "neovim/nvim-lspconfig",
+         config = function()
+             local lspconfig = require("lspconfig")
+             lspconfig.clangd.setup({
+                 cmd = {"clangd"},
+             })
+         end,
+    }
 })

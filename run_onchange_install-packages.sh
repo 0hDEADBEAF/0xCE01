@@ -49,6 +49,8 @@ yay
 # imagemagick: Image output using sixel or kitty graphics protocol
 # torbrowser-launcher: Privacy at its best
 # wlr-randr: Used to fetch monitors resolution & physical size
+# unzip: For .zip files
+# clang: LLVM FTW
 yay -Sy \
     kitty \
     nvim \
@@ -79,7 +81,9 @@ yay -Sy \
 	ddcutil \
 	imagemagick \
 	torbrowser-launcher \
-	wlr-randr
+	wlr-randr \
+	unzip \
+	clang
 
 # Setting default Rust toolchain to stable
 rustup default stable

@@ -1,0 +1,271 @@
+AccessModifierOffset: -3
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  AlignFunctionDeclarations: true
+  AlignFunctionPointers: true
+  PadOperators: true
+AlignConsecutiveBitFields:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  AlignFunctionDeclarations: true
+  AlignFunctionPointers: true
+  PadOperators: true
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  AlignFunctionDeclarations: true
+  AlignFunctionPointers: true
+  PadOperators: true
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCompound: true
+  AlignFunctionDeclarations: true
+  AlignFunctionPointers: true
+  PadOperators: true
+AlignConsecutiveShortCaseStatements:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+  AlignCaseArrows: true
+  AlignCaseColons: false
+# ONLY FOR TABLEGEN: AlignConsecutiveTableGenBreakingDAGArgColons
+# ONLY FOR TABLEGEN: AlignConsecutiveTableGenCondOperatorColons
+# ONLY FOR TABLEGEN: AlignConsecutiveTableGenDefinitionColons
+AlignEscapedNewlines: LeftWithLastLine
+AlignOperands: AlignAfterOperator
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 1
+AllowAllArgumentsOnNextLine: false
+# DEPRECATED: AllowAllConstructorInitializersOnNextLine
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowBreakBeforeNoexceptSpecifier: Never
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseExpressionOnASingleLine: true
+AllowShortCompoundRequirementOnASingleLine: true
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: false
+AllowShortNamespacesOnASingleLine: true
+# DEPRECATED: AlwaysBreakAfterDefinitionReturnType
+# RENAMED: AlwaysBreakAfterReturnType
+AlwaysBreakBeforeMultilineStrings: false
+# RENAMED: AlwaysBreakTemplateDeclarations
+AttributeMacros: []
+BinPackArguments: false
+# CLANG-FORMAT 21: BinPackLongBracedList
+BinPackParameters: OnePerLine
+BitFieldColonSpacing: After
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterClass: true
+  AfterControlStatement: Always
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  # ONLY FOR OBJC: AfterObjCDeclaration
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+BracedInitializerIndentWidth: 2
+BreakAdjacentStringLiterals: true
+BreakAfterAttributes: Never
+#ONLY FOR JAVA: BreakAfterJavaFieldAnnotations
+BreakAfterReturnType: Automatic
+# ONLY FOR JSON: BreakArrays
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Custom
+BreakBeforeInlineASMColon: OnlyMultiline
+# CLANG-FORMAT 21: BreakBeforeTemplateCloser
+BreakBeforeTernaryOperators: true
+BreakBinaryOperations: OnePerLine
+BreakConstructorInitializers: BeforeComma
+BreakFunctionDefinitionParameters: false
+BreakInheritanceList: BeforeComma
+BreakStringLiterals: true
+BreakTemplateDeclarations: Yes
+ColumnLimit: 120
+CommentPragmas: ""
+CompactNamespaces: false
+# DEPRECATED: ConstructorInitializerAllOnOneLineOrOnePerLine
+ConstructorInitializerIndentWidth: 2
+ContinuationIndentWidth: 2
+Cpp11BracedListStyle: false
+# DEPRECATED: DeriveLineEnding
+DerivePointerAlignment: false
+DisableFormat: false
+EmptyLineAfterAccessModifier: Never
+EmptyLineBeforeAccessModifier: Always
+# EXPERIMENTAL: ExperimentalAutoDetectBinPacking
+FixNamespaceComments: true
+ForEachMacros: []
+IfMacros: []
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '<([A-Za-z0-9\Q/-_\E])+>'
+    Priority: 1
+  - Regex: '<([A-Za-z0-9.\Q/-_\E])+>'
+    Priority: 2
+  - Regex: '"([A-Za-z0-9.\Q/-_\E])+"'
+    Priority: 3
+# DEFAULT VALUE: IncludeIsMainRegex
+# DEFAULT VALUE: IncludeIsMainSourceRegex
+IndentAccessModifiers: false
+IndentCaseBlocks: true
+IndentCaseLabels: true
+IndentExportBlock: true
+IndentExternBlock: true
+IndentGotoLabels: false
+IndentPPDirectives: AfterHash
+IndentRequiresClause: false
+IndentWidth: 4
+IndentWrappedFunctionNames: true
+InsertBraces: false
+InsertNewlineAtEOF: true
+InsertTrailingCommas: Wrapped
+IntegerLiteralSeparator:
+  Binary: 4
+  BinaryMinDigits: 9
+  Decimal: 3
+  DecimalMinDigits: 7
+  Hex: -1
+  HexMinDigits: 9
+# ONLY FOR JAVA: JavaImportGroups
+# ONLY FOR JAVASCRIPT: JavaScriptQuotes
+# ONLY FOR JAVASCRIPT: JavaScriptWrapImports
+KeepEmptyLines:
+  AtEndOfFile: false
+  AtStartOfBlock: false
+  AtStartOfFile: false
+# DEPRECATED: KeepEmptyLinesAtEOF
+# DEPRECATED: KeepEmptyLinesAtTheStartOfBlocks
+KeepFormFeed: false
+LambdaBodyIndentation: Signature
+Language: Cpp
+LineEnding: LF
+MacroBlockBegin: ""
+MacroBlockEnd: ""
+Macros: []
+MainIncludeChar: Quote
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: All
+NamespaceMacros: []
+# ONLY FOR OBJC: ObjCBinPackProtocolList
+# ONLY FOR OBJC: ObjCBlockIndentWidth
+# ONLY FOR OBJC: ObjCBreakBeforeNestedBlockParam
+# ONLY FOR OBJC: ObjCPropertyAttributeOrder
+# ONLY FOR OBJC: ObjCSpaceAfterProperty
+# ONLY FOR OBJC: ObjCSpaceBeforeProtocolList
+PPIndentWidth: 1
+PackConstructorInitializers: Never
+# DEFAULT VALUE: PenaltyBreakAssignment
+# DEFAULT VALUE: PenaltyBreakBeforeFirstCallParameter
+# DEFAULT VALUE: PenaltyBreakBeforeMemberAccess
+# DEFAULT VALUE: PenaltyBreakComment
+# DEFAULT VALUE: PenaltyBreakFirstLessLess
+# DEFAULT VALUE: PenaltyBreakOpenParenthesis
+# DEFAULT VALUE: PenaltyBreakScopeResolution
+# DEFAULT VALUE: PenaltyBreakString
+# DEFAULT VALUE: PenaltyBreakTemplateDeclaration
+# DEFAULT VALUE: PenaltyExcessCharacter
+# DEFAULT VALUE: PenaltyIndentedWhitespace
+# DEFAULT VALUE: PenaltyReturnTypeOnItsOwnLine
+PointerAlignment: Left
+QualifierAlignment: Custom
+QualifierOrder:
+  [inline, friend, static, constexpr, const, volatile, type, restrict]
+RawStringFormats: []
+ReferenceAlignment: Left
+ReflowComments: Always
+RemoveBracesLLVM: true
+RemoveEmptyLinesInUnwrappedLines: true
+RemoveParentheses: ReturnStatement
+RemoveSemicolon: true
+RequiresClausePosition: OwnLine
+RequiresExpressionIndentation: Keyword
+SeparateDefinitionBlocks: Always
+ShortNamespaceLines: 0
+SkipMacroDefinitionBody: false
+SortIncludes: CaseSensitive
+# ONLY FOR JAVA: SortJavaStaticImport
+SortUsingDeclarations: Lexicographic
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: false
+SpaceAroundPointerQualifiers: Before
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: false
+SpaceBeforeInheritanceColon: false
+# ONLY FOR JSON: SpaceBeforeJsonColon
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: true
+  AfterForeachMacros: false
+  AfterFunctionDeclarationName: false
+  AfterFunctionDefinitionName: false
+  AfterIfMacros: false
+  AfterOverloadedOperator: false
+  AfterPlacementOperator: false
+  AfterRequiresInClause: false
+  AfterRequiresInExpression: false
+  BeforeNonEmptyParentheses: false
+SpaceBeforeRangeBasedForLoopColon: false
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: false
+# DEPRECATED: SpaceInEmptyParentheses
+SpacesBeforeTrailingComments: 2
+SpacesInAngles: Never
+# DEPRECATED: SpaceInCStyleCastParentheses
+# DEPRECATED: SpaceInConditionalStatement
+SpacesInContainerLiterals: false
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: -1
+SpacesInParens: Custom
+SpacesInParensOptions:
+  ExceptDoubleParentheses: true
+  InConditionalStatements: false
+  InCStyleCasts: false
+  InEmptyParentheses: false
+  Other: false
+# DEPRECATED: SpacesInParentheses
+SpacesInSquareBrackets: false
+Standard: Latest
+StatementAttributeLikeMacros: []
+StatementMacros: []
+TabWidth: 4
+# ONLY FOR TABLEGEN: TableGenBreakInsideDAGArg
+# ONLY FOR TABLEGEN: TableGenBreakingDAGArgOperators
+TemplateNames: []
+TypeNames: []
+TypenameMacros: []
+# DEPRECATED: UseCRLF
+UseTab: Never
+VariableTemplates: []
+# ONLY FOR VERILOG: VerilogBreakBetweenInstancePorts
+WhitespaceSensitiveMacros: []
+WrapNamespaceBodyWithEmptyLines: Never
+

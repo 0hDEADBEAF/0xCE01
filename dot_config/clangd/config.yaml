@@ -1,0 +1,55 @@
+# CompileFlags:
+  # Add
+  # Remove
+  # CompilationDatabase
+  # Compiler
+  # BuiltinHeaders: Clangd TODO: Enable when v21 is released
+Index:
+  Background: Build
+  # External
+  StandardLibrary: true
+Style:
+  FullyQualifiedNamespaces: ["std"]
+  QuotedHeaders: "src/.*"
+  AngledHeaders: ["third-party/.*"]
+Diagnostics:
+  # Suppress
+  ClangTidy:
+    Add: ["bugprone*",
+          "cert*",
+          "concurrency*",
+          "cppcoreguidelines*",
+          "google*",
+          "misc*",
+          "modernize*",
+          "performance*",
+          "portability*",
+          "readability*"]
+    # CheckOptions
+    FastCheckFilter: None
+  UnusedIncludes: Strict
+  Includes:
+    # IgnoreHeader
+    AnalyzeAngledIncludes: false
+  MissingIncludes: Strict
+Completion:
+  AllScopes: Yes
+  ArgumentLists: FullPlaceholders
+  # HeaderInsertion: IWYU TODO: Enable when v21 is released
+  # CodePatterns: All TODO: Enable when v21 is released
+InlayHints:
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+  Designators: true
+  BlockEnd: false
+  DefaultArguments: true
+  TypeNameLimit: 0
+Hover:
+  ShowAKA: true
+# SemanticTokens:
+  # DisabledKinds
+  # DisabledModifiers
+# Documentation:
+  # CommentFormat: Doxygen TODO: Enable this when v22 is released
+
