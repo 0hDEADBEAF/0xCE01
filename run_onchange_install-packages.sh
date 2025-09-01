@@ -51,6 +51,9 @@ yay
 # wlr-randr: Used to fetch monitors resolution & physical size
 # unzip: For .zip files
 # clang: LLVM FTW
+# noto-fonts: General fonts
+# noto-fonts-cjk: Support Chinese, Japanese and Korean unicode characters
+# noto-fonts-emoji: Emoji characters
 yay -Sy \
     kitty \
     nvim \
@@ -83,7 +86,10 @@ yay -Sy \
 	torbrowser-launcher \
 	wlr-randr \
 	unzip \
-	clang
+	clang \
+	noto-fonts \
+	noto-fonts-cjk \
+	noto-fonts-emoji
 
 # Setting default Rust toolchain to stable
 rustup default stable
