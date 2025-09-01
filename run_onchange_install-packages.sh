@@ -18,6 +18,7 @@ yay
 
 # Install packages
 # git: Of course!
+# lazygit: What a nice tool!
 # kitty: My favorite terminal
 # nvim: The best editor
 # librewolf-bin: The best browser (compiling from source takes hours so using the bin only)
@@ -54,7 +55,10 @@ yay
 # noto-fonts: General fonts
 # noto-fonts-cjk: Support Chinese, Japanese and Korean unicode characters
 # noto-fonts-emoji: Emoji characters
+# luarocks: For Neovim
 yay -Sy \
+    git \
+    lazygit \
     kitty \
     nvim \
     librewolf-bin \
@@ -89,7 +93,8 @@ yay -Sy \
 	clang \
 	noto-fonts \
 	noto-fonts-cjk \
-	noto-fonts-emoji
+	noto-fonts-emoji \
+	luarocks
 
 # Setting default Rust toolchain to stable
 rustup default stable
