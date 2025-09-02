@@ -3,9 +3,9 @@ local options = {
 	compatible = false,
 	cpoptions = "aABceFs_",
 	paste = true,
-	-- runtimepath,
-	-- packpath,
-	helpfile = "/usr/share/nvim/runtime/doc/help.txt",
+	-- runtimepath
+	-- packpath
+	-- helpfile
 
 	-- 2. Moving around, searching and patterns
 	whichwrap = "b,s",
@@ -294,7 +294,7 @@ local options = {
 	cmdwinheight = 7,
 
 	-- 20. Executing external commands
-	shell = "$SHELL",
+	-- shell
 	shellquote = "",
 	shellxquote = "",
 	shellxescape = "",
