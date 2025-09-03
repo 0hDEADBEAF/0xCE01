@@ -56,6 +56,8 @@ yay
 # noto-fonts-cjk: Support Chinese, Japanese and Korean unicode characters
 # noto-fonts-emoji: Emoji characters
 # luarocks: For Neovim
+# uv: Best project manager for Python (poetry is nice too :3)
+# ruff: Astral FTW
 yay -Sy \
     git \
     lazygit \
@@ -94,7 +96,13 @@ yay -Sy \
 	noto-fonts \
 	noto-fonts-cjk \
 	noto-fonts-emoji \
-	luarocks
+	luarocks \
+	uv \
+	ruff
+
+# Installing ty (Astral LS)
+uv tool install ty@latest
+uv tool update-shell
 
 # Setting default Rust toolchain to stable
 rustup default stable

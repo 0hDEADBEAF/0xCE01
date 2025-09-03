@@ -1,0 +1,92 @@
+[rules]
+# Errors
+byte-string-type-annotation = "error"
+call-non-callable = "error"
+conflicting-argument-forms = "error"
+conflicting-declarations = "error"
+conflicting-metaclass = "error"
+cyclic-class-definition = "error"
+duplicate-base = "error"
+duplicate-kw-only = "error"
+escape-character-in-forward-annotation = "error"
+fstring-type-annotation = "error"
+implicit-concatenated-string-type-annotation = "error"
+inconsistent-mro = "error"
+index-out-of-bounds = "error"
+instance-layout-conflict = "error"
+invalid-argument-type = "error"
+invalid-assignment = "error"
+invalid-attribute-access = "error"
+invalid-await = "error"
+invalid-base = "error"
+invalid-context-manager = "error"
+invalid-declaration = "error"
+invalid-exception-caught = "error"
+invalid-generic-class = "error"
+invalid-key = "error"
+invalid-legacy-type-variable = "error"
+invalid-metaclass = "error"
+invalid-named-tuple = "error"
+invalid-overload = "error"
+invalid-parameter-default = "error"
+invalid-protocol = "error"
+invalid-raise = "error"
+invalid-return-type = "error"
+invalid-super-argument = "error"
+invalid-syntax-in-forward-annotation = "error"
+invalid-type-alias-type = "error"
+invalid-type-checking-constant = "error"
+invalid-type-form = "error"
+invalid-type-guard-call = "error"
+invalid-type-guard-definition = "error"
+invalid-type-variable-constraints = "error"
+missing-argument = "error"
+missing-typed-dict-key = "error"
+no-matching-overload = "error"
+non-subscriptable = "error"
+not-iterable = "error"
+parameter-already-assigned = "error"
+raw-string-annotation = "error"
+static-assert-error = "error"
+subclass-of-final-class = "error"
+too-many-positional-arguments = "error"
+type-assertion-failure = "error"
+unavailable-implicit-super-arguments = "error"
+unknown-argument = "error"
+unresolved-attribute = "error"
+unresolved-import = "error"
+unresolved-reference = "error"
+unsupported-bool-conversion = "error"
+unsupported-operator = "error"
+zero-stepsize-in-slice = "error"
+
+division-by-zero = "error"
+
+# Warnings
+ambiguous-protocol-member = "warn"
+deprecated = "warn"
+invalid-ignore-comment = "warn"
+possibly-unbound-attribute = "warn"
+possibly-unbound-implicit-call = "warn"
+possibly-unbound-import = "warn"
+redundant-cast = "warn"
+undefined-reveal = "warn"
+unknown-rule = "warn"
+unresolved-global = "warn"
+unsupported-base = "warn"
+
+possibly-unresolved-reference = "warn"
+unused-ignore-comment = "warn"
+
+[environment]
+extra-paths = []
+# python = "./.venv"
+# python-platform
+# python-version
+# root
+# typeshed
+
+[terminal]
+error-on-warning = false
+output-format = "concise"
+
