@@ -1,71 +1,104 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	vim.fn.system({
-    	"git",
-    	"clone",
-    	"--filter=blob:none",
-    	"https://github.com/folke/lazy.nvim.git",
-    	"--branch=stable", -- latest stable release
-    	lazypath,
-  	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Colorscheme
-	"morhetz/gruvbox",
+    -- Colorscheme
+    "morhetz/gruvbox",
 
-	-- Cursor
-	"RRethy/vim-illuminate",
+    -- Indent guide
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {}
+    },
+
+    -- Unwanted whitespaces
+    {
+        "lukoshkin/highlight-whitespace",
+        opts = {
+            tws ="\\s\\+$",
+            clear_on_buf_leave = false,
+            palette = {
+                markdown = {
+                    tws = "#fb4934",
+                    ['\\S\\@<=\\s\\(\\.\\|,\\)\\@='] = "#458588",
+                    ['\\S\\@<= \\{2,\\}\\S\\@='] = "#83a598",
+                    ['\\t\\+'] = "#d3869b",
+                },
+                other = {
+                    tws = "#fb4934",
+                    ['\\S\\@<=\\s,\\@='] = "#fabd2f",
+                    ['\\(#\\|--\\)\\@<= \\{2,\\}\\S\\@='] = "#fabd2f",
+                    ['\\S\\@<= \\{3,\\}\\(#\\|--\\)\\@='] = "#fabd2f",
+                    ['\\t\\+'] = "#d3869b",
+                }
+            }
+        }
+    },
+
+    -- Cursor
+    "RRethy/vim-illuminate",
 
     -- Status line
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
-        	icons_enabled = true,
+            icons_enabled = true,
             theme = "gruvbox",
-			component_separators = { left = '', right = ''},
-    		section_separators = { left = '', right = ''},
-    		always_divide_middle = true,
-    		always_show_tabline = true,
-    		globalstatus = false,
-    		refresh = {
-    			statusline = 1000,
-      			tabline = 1000,
-      			winbar = 1000,
-      			refresh_time = 16, -- ~60fps
-      			events = {
-        			'WinEnter',
-        			'BufEnter',
-        			'BufWritePost',
-        			'SessionLoadPost',
-        			'FileChangedShellPost',
-        			'VimResized',
-       				'Filetype',
-        			'CursorMoved',
-        			'CursorMovedI',
-        			'ModeChanged',
-    			}
-    		},
-    		sections = {
-				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff" },
-				lualine_c = { "filename" },
-				lualine_x = { "diagnostics", "lsp_status", "filetype" },
-				lualine_y = { "searchcount", "selectioncount" },
-				lualine_z = { "progress", "location" }
-    		},
-			inactive_sections = {
-				lualine_a = {},
-				lualine_b = {},
-				lualine_c = { "filename" },
-				lualine_x = {},
-				lualine_y = { "location" },
-				lualine_z = {}
-			}
+            component_separators = { left = '', right = ''},
+            section_separators = { left = '', right = ''},
+            always_divide_middle = true,
+            always_show_tabline = true,
+            globalstatus = false,
+            refresh = {
+                statusline = 1000,
+                tabline = 1000,
+                winbar = 1000,
+                refresh_time = 16, -- ~60fps
+                events = {
+                    'WinEnter',
+                    'BufEnter',
+                    'BufWritePost',
+                    'SessionLoadPost',
+                    'FileChangedShellPost',
+                    'VimResized',
+                    'Filetype',
+                    'CursorMoved',
+                    'CursorMovedI',
+                    'ModeChanged',
+                }
+            },
+            sections = {
+                lualine_a = { "mode" },
+                lualine_b = { "branch", "diff" },
+                lualine_c = { "filename" },
+                lualine_x = { "diagnostics", "lsp_status", "filetype" },
+                lualine_y = { "searchcount", "selectioncount" },
+                lualine_z = { "progress", "location" }
+            },
+            inactive_sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = { "filename" },
+                lualine_x = {},
+                lualine_y = { "location" },
+                lualine_z = {}
+            }
         }
     },
 
@@ -100,17 +133,17 @@ require("lazy").setup({
                 button = "",
                 diagnostics = {
                     symbols = {
-						hint = "󰌵",
-						info = "",
-						warn = "",
-						error = "",
-					},
-					highlights = {
-						hint = "DiagnosticSignHint",
-						info = "DiagnosticSignInfo",
-						warn = "DiagnosticSignWarn",
-						error = "DiagnosticSignError",
-					}
+                        hint = "󰌵",
+                        info = "",
+                        warn = "",
+                        error = "",
+                    },
+                    highlights = {
+                        hint = "DiagnosticSignHint",
+                        info = "DiagnosticSignInfo",
+                        warn = "DiagnosticSignWarn",
+                        error = "DiagnosticSignError",
+                    }
                 },
                 gitsigns = {
                     added = {
@@ -257,7 +290,7 @@ require("lazy").setup({
                     return 15
                 elseif term.direction == "vertical" then
                     return vim.o.columns * 0.4
-            	end
+                end
             end,
             hide_numbers = true,
             autochdir = false,
@@ -274,50 +307,50 @@ require("lazy").setup({
         }
     },
 
-	-- File tree
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
+    -- File tree
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
             "nvim-tree/nvim-web-devicons",
-		},
-		lazy = false,
-		opts = {
-			source_selector = {
-				winbar = true,
-				show_scrolled_off_parent_node = false,
-				sources = {
-					{	
-						source = "filesystem",
-						display_name = " 󰉓 Files "
-					},
-					{
-						source = "buffers",
-						display_name = " 󰈚 Buffers "
-					},
-					{
-						source = "git_status",
-						display_name = " 󰊢 Git "
-					},
-				},
-				content_layout = "start",
-				tabs_layout = "equal",
-				truncation_character = "…",
-				tabs_min_width = nil,
-				tabs_max_width = nil,
-				padding = 0,
-				separator = { left = "▏", right= "▕" },
-				separator_active = nil,
-				show_separator_on_edge = false,
-				highlight_tab = "NeoTreeTabInactive",
-				highlight_tab_active = "NeoTreeTabActive",
-				highlight_background = "NeoTreeTabInactive",
-				highlight_separator = "NeoTreeTabSeparatorInactive",
-				highlight_separator_active = "NeoTreeTabSeparatorActive",
-			},
-			filesystem = {
+        },
+        lazy = false,
+        opts = {
+            source_selector = {
+                winbar = true,
+                show_scrolled_off_parent_node = false,
+                sources = {
+                    {
+                        source = "filesystem",
+                        display_name = " 󰉓 Files "
+                    },
+                    {
+                        source = "buffers",
+                        display_name = " 󰈚 Buffers "
+                    },
+                    {
+                        source = "git_status",
+                        display_name = " 󰊢 Git "
+                    },
+                },
+                content_layout = "start",
+                tabs_layout = "equal",
+                truncation_character = "…",
+                tabs_min_width = nil,
+                tabs_max_width = nil,
+                padding = 0,
+                separator = { left = "▏", right= "▕" },
+                separator_active = nil,
+                show_separator_on_edge = false,
+                highlight_tab = "NeoTreeTabInactive",
+                highlight_tab_active = "NeoTreeTabActive",
+                highlight_background = "NeoTreeTabInactive",
+                highlight_separator = "NeoTreeTabSeparatorInactive",
+                highlight_separator_active = "NeoTreeTabSeparatorActive",
+            },
+            filesystem = {
                 filtered_items = {
                     visible = false,
                     hide_dotfiles = false,
@@ -328,12 +361,9 @@ require("lazy").setup({
                         "thumbs.db",
                         ".git"
                     },
-                    hide_by_pattern = {
-                    },
-                    always_show = {
-                    },
-                    always_show_by_pattern = {
-                    },
+                    hide_by_pattern = {},
+                    always_show = {},
+                    always_show_by_pattern = {},
                 },
             },
             default_component_configs = {
@@ -353,33 +383,33 @@ require("lazy").setup({
                     }
                 },
                 diagnostics = {
-					symbols = {
-						hint = "󰌵",
-						info = "",
-						warn = "",
-						error = "",
-					},
-					highlights = {
-						hint = "DiagnosticSignHint",
-						info = "DiagnosticSignInfo",
-						warn = "DiagnosticSignWarn",
-						error = "DiagnosticSignError",
-					},
-				},
-				indent = {
-					with_markers = true,
-					indent_marker = "│",
-					last_indent_marker = "└",
-					indent_size = 2,
-					with_expanders = true,
-					expander_collapsed = "",
-					expander_expanded = "",
-					expander_highlight = "NeoTreeExpander",
-				}
+                    symbols = {
+                        hint = "󰌵",
+                        info = "",
+                        warn = "",
+                        error = "",
+                    },
+                    highlights = {
+                        hint = "DiagnosticSignHint",
+                        info = "DiagnosticSignInfo",
+                        warn = "DiagnosticSignWarn",
+                        error = "DiagnosticSignError",
+                    },
+                },
+                indent = {
+                    with_markers = true,
+                    indent_marker = "│",
+                    last_indent_marker = "└",
+                    indent_size = 2,
+                    with_expanders = true,
+                    expander_collapsed = "",
+                    expander_expanded = "",
+                    expander_highlight = "NeoTreeExpander",
+                }
             }
-		}
-	},
-	{
+        }
+    },
+    {
         "antosha417/nvim-lsp-file-operations",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -390,53 +420,53 @@ require("lazy").setup({
         end,
     },
 
-	-- Completion 
-	{
-		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets" },
-		version = "*",
-		---@module "blink.cmp"
-		---@type blink.cmp.Config
-		opts = {
-			keymap = {
-				preset = "enter",
-				["<Up>"] = { "select_prev", "fallback" },
-				["<Down>"] = { "select_next", "fallback" },
-				["<Tab>"] = { "select_next", "fallback" },
-				["<S-Tab>"] = { "select_prev", "fallback" },
-				["<C-b>"] = { "scroll_documentation_up", "fallback" },
-				["<C-f>"] = { "scroll_documentation_down", "fallback" },
-				["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
-			},
-			appearance = {
-				nerd_font_variant = "mono"
-			},
-			completion = {
-				keyword = {
-					range = "prefix"
-				},
-				menu = {
-					draw = {
-						treesitter = { "lsp" }
-					}
-				},
-				trigger = {
-					show_on_trigger_character = true
-				},
-				documentation = {
-					auto_show = true
-				}
-			},
-			signature = {
-				enabled = true
-			},
-			sources = {
-				default = { "lsp", "path", "snippets", "buffer" }
-			},
-			fuzzy = {
-				implementation = "prefer_rust_with_warning"
-			}
-		},
-		opts_extend = { "sources.default" }
-	}
+    -- Completion 
+    {
+        "saghen/blink.cmp",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        version = "*",
+        ---@module "blink.cmp"
+        ---@type blink.cmp.Config
+        opts = {
+            keymap = {
+                preset = "enter",
+                ["<Up>"] = { "select_prev", "fallback" },
+                ["<Down>"] = { "select_next", "fallback" },
+                ["<Tab>"] = { "select_next", "fallback" },
+                ["<S-Tab>"] = { "select_prev", "fallback" },
+                ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+                ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+                ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+            },
+            appearance = {
+                nerd_font_variant = "mono"
+            },
+            completion = {
+                keyword = {
+                    range = "prefix"
+                },
+                menu = {
+                    draw = {
+                        treesitter = { "lsp" }
+                    }
+                },
+                trigger = {
+                    show_on_trigger_character = true
+                },
+                documentation = {
+                    auto_show = true
+                }
+            },
+            signature = {
+                enabled = true
+            },
+            sources = {
+                default = { "lsp", "path", "snippets", "buffer" }
+            },
+            fuzzy = {
+                implementation = "prefer_rust_with_warning"
+            }
+        },
+        opts_extend = { "sources.default" }
+    }
 })
