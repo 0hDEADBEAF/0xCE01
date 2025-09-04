@@ -7,10 +7,10 @@ sudo pacman -Syu
 mkdir -p ~/src
 cd ~/src
 if [ ! -d "yay" ]; then
-	sudo pacman -S --needed git base-devel
-	git clone https://aur.archlinux.org/yay-git ~/src/yay
-	cd yay
-	makepkg -si
+    sudo pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay-git ~/src/yay
+    cd yay
+    makepkg -si
 fi
 
 # Update yay packages
@@ -71,34 +71,34 @@ yay -Sy \
     zoxide \
     eza \
     yazi \
-	zsh \
-	fzf \
+    zsh \
+    fzf \
     xcursor-hackneyed-light \
     rustup \
     python \
-	python-pip \
-	python-requests \
-	ags-hyprpanel-git \
-	youtube-music-bin \
-	less \
-	otf-departure-mono \
-	hyprlock \
-	wofi \
-	btop \
-	fastfetch \
-	chafa \
-	ddcutil \
-	imagemagick \
-	torbrowser-launcher \
-	wlr-randr \
-	unzip \
-	clang \
-	noto-fonts \
-	noto-fonts-cjk \
-	noto-fonts-emoji \
-	luarocks \
-	uv \
-	ruff
+    python-pip \
+    python-requests \
+    ags-hyprpanel-git \
+    youtube-music-bin \
+    less \
+    otf-departure-mono \
+    hyprlock \
+    wofi \
+    btop \
+    fastfetch \
+    chafa \
+    ddcutil \
+    imagemagick \
+    torbrowser-launcher \
+    wlr-randr \
+    unzip \
+    clang \
+    noto-fonts \
+    noto-fonts-cjk \
+    noto-fonts-emoji \
+    luarocks \
+    uv \
+    ruff
 
 # Installing ty (Astral LS)
 uv tool install ty@latest
