@@ -42,7 +42,7 @@ yay
 # otf-departure-mono: A nice looking old school font!
 # hyprlock: A nice lock screen software
 # wofi: An application launcher for wayland
-# btop: To get a nice overview of the system performance 
+# btop: To get a nice overview of the system performance
 # fastfetch: Just to make sure I'm using arch
 # chafa: Image output as ascii art
 # ddcutil: Brightness detection of external displays
@@ -58,6 +58,7 @@ yay
 # luarocks: For Neovim
 # uv: Best project manager for Python (poetry is nice too :3)
 # ruff: Astral FTW
+# fuse2: Required for AppImage files (Dofus)
 yay -Sy \
     git \
     lazygit \
@@ -98,12 +99,20 @@ yay -Sy \
     noto-fonts-emoji \
     luarocks \
     uv \
-    ruff
+    ruff \
+    fuse2
 
 # Installing rocm-smi-lib only if the computer uses a AMD GPU (so it can be displayed in btop)
 is_amd_gpu=$(lspci -k | grep -A 2 -E '(VGA|3D)' | grep 'Kernel driver in use: amdgpu')
 if [ -n "$is_amd_gpu" ]; then
     yay -Sy rocm-smi-lib
+fi
+
+# Installing Dofus
+if [ ! -e "~/games/Dofus.AppImage" ]; then
+    mkdir -p ~/games
+    wget https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage -O ~/games/Dofus.AppImage
+    chmod +x ~/games/Dofus.AppImage
 fi
 
 # Installing ty (Astral LS)
