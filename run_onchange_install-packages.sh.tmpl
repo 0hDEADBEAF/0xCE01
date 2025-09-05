@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable multilib repository (needed for Steam dependencies)
+sudo sed -i '/^#\[multilib\]/,/^#Include/s/^#//' /etc/pacman.conf
+
 # Update packages/system
 sudo pacman -Syu
 
@@ -109,11 +112,18 @@ if [ -n "$is_amd_gpu" ]; then
 fi
 
 # Installing Dofus
-if [ ! -e "~/games/Dofus.AppImage" ]; then
+if [ ! -f "/home/deadbeaf/games/Dofus.AppImage" ]; then
     mkdir -p ~/games
     wget https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage -O ~/games/Dofus.AppImage
     chmod +x ~/games/Dofus.AppImage
 fi
+
+# Installing Steam
+sudo pacman -S steam-native-runtime
+yay -S steamcmd
+steam_username={{ (bitwardenSecrets "a5975f8e-a24e-4db9-a500-b34f0160c78a" .accessToken).value }}
+steamcmd +force_install_dir /home/deadbeaf/games/fez +login $steam_username +app_update 224760 +quit
+steamcmd +force_install_dir /home/deadbeaf/games/dominion +login $steam_username +app_update 1131620 +quit
 
 # Installing ty (Astral LS)
 uv tool install ty@latest
