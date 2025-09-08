@@ -58,46 +58,54 @@ require("lazy").setup({
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
-            icons_enabled = true,
-            theme = "gruvbox",
-            component_separators = { left = '', right = ''},
-            section_separators = { left = '', right = ''},
-            always_divide_middle = true,
-            always_show_tabline = true,
-            globalstatus = false,
-            refresh = {
-                statusline = 1000,
-                tabline = 1000,
-                winbar = 1000,
-                refresh_time = 16, -- ~60fps
-                events = {
-                    'WinEnter',
-                    'BufEnter',
-                    'BufWritePost',
-                    'SessionLoadPost',
-                    'FileChangedShellPost',
-                    'VimResized',
-                    'Filetype',
-                    'CursorMoved',
-                    'CursorMovedI',
-                    'ModeChanged',
+            options = {
+                icons_enabled = true,
+                theme = "gruvbox",
+                component_separators = { left = '', right = ''},
+                section_separators = { left = '', right = ''},
+                always_divide_middle = true,
+                always_show_tabline = true,
+                globalstatus = true,
+                disabled_filetypes = {
+                    "neo-tree"
+                },
+                ignore_focus = {
+                    "neo-tree"
+                },
+                refresh = {
+                    statusline = 1000,
+                    tabline = 1000,
+                    winbar = 1000,
+                    refresh_time = 16, -- ~60fps
+                    events = {
+                        'WinEnter',
+                        'BufEnter',
+                        'BufWritePost',
+                        'SessionLoadPost',
+                        'FileChangedShellPost',
+                        'VimResized',
+                        'Filetype',
+                        'CursorMoved',
+                        'CursorMovedI',
+                        'ModeChanged',
+                    }
+                },
+                sections = {
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch", "diff" },
+                    lualine_c = { "filename" },
+                    lualine_x = { "diagnostics", "lsp_status", "filetype" },
+                    lualine_y = { "searchcount", "selectioncount" },
+                    lualine_z = { "progress", "location" }
+                    },
+                inactive_sections = {
+                    lualine_a = {},
+                    lualine_b = {},
+                    lualine_c = { "filename" },
+                    lualine_x = {},
+                    lualine_y = { "location" },
+                    lualine_z = {}
                 }
-            },
-            sections = {
-                lualine_a = { "mode" },
-                lualine_b = { "branch", "diff" },
-                lualine_c = { "filename" },
-                lualine_x = { "diagnostics", "lsp_status", "filetype" },
-                lualine_y = { "searchcount", "selectioncount" },
-                lualine_z = { "progress", "location" }
-            },
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = { "filename" },
-                lualine_x = {},
-                lualine_y = { "location" },
-                lualine_z = {}
             }
         }
     },
@@ -420,7 +428,7 @@ require("lazy").setup({
         end,
     },
 
-    -- Completion 
+    -- Completion
     {
         "saghen/blink.cmp",
         dependencies = { "rafamadriz/friendly-snippets" },
