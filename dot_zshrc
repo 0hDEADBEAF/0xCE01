@@ -102,3 +102,22 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Git aliasses
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gf="git fetch"
+alias gps="git push"
+alias gpl="git pull"
+alias gd="git diff"
+alias gl="git log"
+
+# Common aliases
+alias e="$EDITOR"
+
+# chezmoi aliases
+alias ce="chezmoi edit"
+alias ca="chezmoi apply"
+alias ci="chezmoi init"
+alias cu="chezmoi update"
