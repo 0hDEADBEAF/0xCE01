@@ -25,11 +25,12 @@ Diagnostics:
           "performance*",
           "portability*",
           "readability*"]
+    Remove: modernize-use-trailing-return-type
     # CheckOptions
     FastCheckFilter: None
   UnusedIncludes: Strict
   Includes:
-    # IgnoreHeader
+    IgnoreHeader: []
     AnalyzeAngledIncludes: false
   MissingIncludes: Strict
 Completion:
