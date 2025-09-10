@@ -26,6 +26,46 @@ require("lazy").setup({
         opts = {}
     },
 
+    -- Scrollbar (with preview)
+    {
+        "lewis6991/satellite.nvim",
+        opts = {
+            current_only = false,
+            winblend = 30,
+            zindex = 40,
+            excluded_filetypes = {},
+            width = 2,
+            handlers = {
+                cursor = {
+                    enable = true,
+                    symbols = { '⎺', '⎻', '⎼', '⎽' }
+                },
+                search = {
+                    enable = true
+                },
+                diagnostic = {
+                    enable = true,
+                    signs = {'-', '=', '≡'},
+                    min_severity = vim.diagnostic.severity.HINT
+                },
+                gitsigns = {
+                    enable = true,
+                    signs = {
+                        add = "│",
+                        change = "│",
+                        delete = "-"
+                    }
+                },
+                marks = {
+                    enable = false
+                },
+                quickfix = {
+                    signs = { '-', '=', '≡' }
+                }
+            }
+        }
+    },
+
     -- Unwanted whitespaces
     {
         "lukoshkin/highlight-whitespace",
