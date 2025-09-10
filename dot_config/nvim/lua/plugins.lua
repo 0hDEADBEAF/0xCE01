@@ -81,9 +81,9 @@ require("lazy").setup({
                 },
                 other = {
                     tws = "#fb4934",
-                    ['\\S\\@<=\\s,\\@='] = "#fabd2f",
-                    ['\\(#\\|--\\)\\@<= \\{2,\\}\\S\\@='] = "#fabd2f",
-                    ['\\S\\@<= \\{3,\\}\\(#\\|--\\)\\@='] = "#fabd2f",
+                    ['\\S\\@<=\\s,\\@='] = "#d79921",
+                    ['\\(#\\|--\\)\\@<= \\{2,\\}\\S\\@='] = "#d79921",
+                    ['\\S\\@<= \\{3,\\}\\(#\\|--\\)\\@='] = "#d79921",
                     ['\\t\\+'] = "#d3869b",
                 }
             }
@@ -169,7 +169,7 @@ require("lazy").setup({
             exclude_name = {},
             focus_on_close = "left",
             hide = {
-                extensions = true,
+                extensions = false,
                 inactive = true
             },
             highlight_alternate = false,
@@ -366,6 +366,11 @@ require("lazy").setup({
         },
         lazy = false,
         opts = {
+            window = {
+                mappings = {
+                    ["e"] = "open"
+                }
+            },
             source_selector = {
                 winbar = true,
                 show_scrolled_off_parent_node = false,
@@ -407,7 +412,8 @@ require("lazy").setup({
                     hide_by_name = {
                         ".DS_Store",
                         "thumbs.db",
-                        ".git"
+                        ".git",
+                        ".cache"
                     },
                     hide_by_pattern = {},
                     always_show = {},

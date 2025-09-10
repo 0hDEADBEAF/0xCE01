@@ -19,3 +19,9 @@ vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", opts) -- Toggle Neotree
 -- Terminal
 vim.keymap.set("n", "<C-b>", ":ToggleTerm<CR>", opts) -- Toggle terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts) -- Exit terminal mode
+
+-- Git
+vim.keymap.set("n", "gl", ":Gitsigns preview_hunk<CR>", opts) -- Show current chunk changes from last version
+
+-- LSP
+vim.keymap.set("n", "qf", vim.lsp.buf.code_action, opts) -- Show available quickfixes to apply for current line

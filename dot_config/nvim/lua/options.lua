@@ -82,7 +82,7 @@ local options = {
     cursorline = true,
     cursorlineopt = "number,line",
     colorcolumn = "",
-    spell = true,
+    spell = false,
     spelllang = "en,fr",
     spellfile = "",
     -- spellcapcheck,
