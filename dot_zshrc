@@ -118,6 +118,7 @@ alias e="$EDITOR"
 
 # chezmoi aliases
 alias ce="chezmoi edit"
-alias ca="chezmoi apply"
+alias cap="chezmoi apply"
+alias cad="chezmoi add"
 alias ci="chezmoi init"
 alias cu="chezmoi update"
