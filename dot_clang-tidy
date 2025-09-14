@@ -1,0 +1,580 @@
+---
+Checks: 'bugprone*, cert*, concurrency*, cppcoreguidelines*, google*, misc*, modernize*, performance*, portability*, readability*, -modernize-use-trailing-return-type'
+CheckOptions:
+  bugprone-argument-comment.StrictMode: true
+  bugprone-argument-comment.IgnoreSingleArgument: false
+  bugprone-argument-comment.CommentBoolLiterals: false
+  bugprone-argument-comment.CommentIntegerLiterals: false
+  bugprone-argument-comment.CommentFloatLiterals: false
+  bugprone-argument-comment.CommentStringLiterals: false
+  bugprone-argument-comment.CommentCharacterLiterals: false
+  bugprone-argument-comment.CommentUserDefinedLiterals: false
+  bugprone-argument-comment.CommentNullPtrs: false
+  bugprone-assert-side-effect.AssertMacros: 'assert,NSAssert,NSCAssert'
+  bugprone-assert-side-effect.CheckFunctionCalls: true
+  bugprone-assert-side-effect.IgnoredFunctions: ''
+  # TODO: Not released yet bugprone-capturing-this-in-member-variable.FunctionWrapperTypes: '::std::function;::std::move_only_function;::boost::function'
+  # TODO: Not released yet bugprone-capturing-this-in-member-variable.BindFunctions: '::std::bind;::boost::bind;::std::bind_front;::std::bind_back; ::boost::compat::bind_front;::boost::compat::bind_back'
+  bugprone-dangling-handle.HandleClasses: '::std::basic_string_view;::std::experimental::basic_string_view;::std::span'
+  bugprone-easily-swappable-parameters.QualifiersMix: false
+  bugprone-easily-swappable-parameters.ModelImplicitConversions: true
+  bugprone-easily-swappable-parameters.MinimumLength: 2
+  # DEFAULT: bugprone-easily-swappable-parameters.IgnoredParameterNames
+  # DEFAULT: bugprone-easily-swappable-parameters.IgnoredParameterTypeSuffixes
+  bugprone-easily-swappable-parameters.SuppressParametersUsedTogether: true
+  bugprone-easily-swappable-parameters.NamePrefixSuffixSilenceDissimilarityTreshold: 0
+  bugprone-empty-catch.IgnoreCatchWithKeywords: '@TODO;@FIXME'
+  bugprone-empty-catch.AllowEmptyCatchForExceptions: ''
+  bugprone-exception-escape.FunctionsThatShouldNotThrow: ''
+  bugprone-exception-escape.IgnoredExceptions: ''
+  bugprone-implicit-widening-of-multiplication-result.UseCXXStaticCastsInCppSources: true
+  bugprone-implicit-widening-of-multiplication-result.UseCXXHeadersInCppSources: true
+  bugprone-implicit-widening-of-multiplication-result.IgnoreConstantIntExpr: false
+  bugprone-lambda-function-name.IgnoreMacros: false
+  bugprone-misplaced-widening-cast.CheckImplicitCasts: true
+  # DEFAULT: bugprone-multi-level-implicit-pointer-conversion.EnableInC: true
+  bugprone-narrowing-conversions.WarnOnIntegerNarrowingConversion: true
+  bugprone-narrowing-conversions.WarnOnIntegerToFloatingPointNarrowingConversion: true
+  bugprone-narrowing-conversions.WarnOnFloatingPointNarrowingConversion: true
+  bugprone-narrowing-conversions.WarnWithinTemplateInstantiation: true
+  bugprone-narrowing-conversions.WarnOnEquivalentBitWidth: true
+  bugprone-narrowing-conversions.IgnoreConversionFromTypes: ''
+  bugprone-narrowing-conversions.PedanticMode: true
+  bugprone-non-zero-enum-to-bool-conversion.EnumIgnoreList: ''
+  bugprone-not-null-terminated-result.WantToUseSafeFunctions: true
+  bugprone-optional-value-conversion.OptionalTypes: '::std::optional,::absl::optional;::boost::optional'
+  bugprone-optional-value-conversion.ValueMethods: '::value$;::get$'
+  bugprone-pointer-arithmetic-on-polymorphic-object.IgnoreInheritedVirtualFunctions: false
+  bugprone-reserved-identifier.Invert: false
+  bugprone-reserved-identifier.AllowedIdentifiers: ''
+  bugprone-signal-handler.AsyncSafeFunctionSet: 'POSIX'
+  bugprone-signed-char-misuse.CharTypdefsToIgnore: ''
+  bugprone-signed-char-misuse.DiagnoseSignedUnsignedCharComparisons: true
+  bugprone-sizeof-expression.WarnOnSizeOfConstant: true
+  bugprone-sizeof-expression.WarnOnSizeOfIntegerExpression: true
+  bugprone-sizeof-expression.WarnOnSizeOfThis: true
+  bugprone-sizeof-expression.WarnOnSizeOfCompareToConstant: true
+  bugprone-sizeof-expression.WarnOnSizeOfPointerToAggregate: true
+  bugprone-sizeof-expression.WarnOnSizeOfPointer: true
+  bugprone-sizeof-expression.WarnOnOffsetDividedBySizeOf: true
+  # TODO: Not released yet bugprone-sizeof-expression.WarnOnSizeOfInLoopTermination: true
+  bugprone-string-constructor.WarnOnLargeLength: true
+  # DEFAULT: bugprone-string-constructor.LargeLengthThreshold
+  bugprone-string-constructor.StringNames: '::std::basic_string;::std::basic_string_view'
+  bugprone-suspicious-enum-usage.StrictMode: 1
+  bugprone-suspicious-missing-comma.SizeThreshold: 1
+  bugprone-suspicious-missing-comma.RatioThreshold: '0.2'
+  bugprone-suspicious-missing-comma.MaxConcatenatedTokens: 10
+  bugprone-suspicious-string-compare.WarnOnImplicitComparison: true
+  bugprone-suspicious-string-compare.WarnOnLogicalNotComparison: true
+  # DEFAULT: bugprone-suspicious-string-compare.StringCompareLikeFunctions
+  bugprone-suspicious-stringview-data-usage.StringViewTypes: '::std::basic_string_view'
+  bugprone-suspicious-stringview-data-usage.AllowedCallees: ''
+  bugprone-tagged-union-member-count.EnableCountingEnumHeuristic: true
+  bugprone-tagged-union-member-count.CountingEnumPrefixes: ''
+  bugprone-tagged-union-member-count.CountingEnumSuffixes: 'count'
+  bugprone-tagged-union-member-count.StrictMode: true
+  bugprone-too-small-loop-variable.MagnitudeBitsUpperLimit: 16
+  bugprone-unhandled-self-assignment.WarnOnlyIfThisHasSuspiciousField: true
+  # TODO: Not released yet bugprone-unintended-char-ostream-output.AllowedTypes: 'unsigned char;signed char'
+  #DEFAULT: bugprone-unintended-char-ostream-output.CastTypeName
+  bugprone-unsafe-functions.ReportMoreUnsafeFunctions: true
+  bugprone-unsafe-functions.ReportDefaultFunctions: true
+  bugprone-unsafe-functions.CustomFunctions: ''
+  # DEFAULT: bugprone-unused-local-non-trivial-variable.IncludeTypes
+  bugprone-unused-local-non-trivial-variable.ExcludeTypes: ''
+  # DEFAULT: bugprone-unused-return-value.CheckedFunctions
+  # DEFAULT: bugprone-unused-return-value.CheckedReturnTypes
+  bugprone-unused-return-value.AllowCastToVoid: false
+  cert-msc51-cpp.DisallowedSeedTypes: 'time_t,std::time_t'
+  cert-oop57-cpp.MemSetNames: ''
+  cert-oop57-cpp.MemCpyNames: ''
+  cert-oop57-cpp.MemCmpNames: ''
+  concurrency-mt-unsafe.FunctionSet: 'any'
+  cppcoreguidelines-avoid-do-while.IgnoreMacros: false
+  # TODO: Not released yet cppcoreguidelines-avoid-goto.IgnoreMacros: false
+  cppcoreguidelines-avoid-non-const-global-variables.AllowInternalLinkage: false
+  cppcoreguidelines-init-variables.IncludeStyle: llvm
+  cppcoreguidelines-init-variables.MathHeader: '<cmath>'
+  cppcoreguidelines-macro-usage.AllowedRegexp: '^DEBUG_*'
+  cppcoreguidelines-macro-usage.CheckCapsOnly: false
+  cppcoreguidelines-macro-usage.IgnoreCommandLineMacros: true
+  # TODO: Not released yet cppcoreguidelines-missing-std-forward.ForwardFunction: '::std::forward'
+  cppcoreguidelines-no-malloc.Allocations: '::malloc;::calloc'
+  cppcoreguidelines-no-malloc.Deallocations: '::free'
+  cppcoreguidelines-no-malloc.Reallocations: '::realloc'
+  # DEFAULT: cppcoreguidelines-owning-memory.LegacyResourceProducers
+  # DEFAULT: cppcoreguidelines-owning-memory.LegacyResourceConsumers
+  # TODO: Not released yet cppcoreguidelines-pro-bounds-avoid-unchecked-container-access.ExcludeClasses: '::std::map;::std::unordered_map;::std::flat_map'
+  # TODO: Not released yet cppcoreguidelines-pro-bounds-avoid-unchecked-container-access.FixMode: 'none'
+  # TODO: Not released yet cppcoreguidelines-pro-bounds-avoid-unchecked-container-access.FixFunction: 'gsl::at'
+  # TODO: Not released yet cppcoreguidelines-pro-bounds-avoid-unchecked-container-access.FixFunctionEmptyArgs: 'gsl::at'
+  cppcoreguidelines-pro-bounds-constant-array-index.GslHeader: ''
+  cppcoreguidelines-pro-bounds-constant-array-index.IncludeStyle: 'llvm'
+  # TODO: Not released yet cppcoreguidelines-pro-bounds-pointer-arithmetic.AllowIncrementDecrementOperators: false
+  # TODO: Not released yet cppcoreguidelines-pro-static-cast-downcast.StrictMode: true
+  cppcoreguidelines-pro-type-const-cast.StrictMode: true
+  cppcoreguidelines-pro-type-member-init.IgnoreArrays: false
+  cppcoreguidelines-pro-type-member-init.UseAssignment: false
+  cppcoreguidelines-rvalue-reference-param-not-moved.AllowPartialMove: false
+  cppcoreguidelines-rvalue-reference-param-not-moved.IgnoreUnnamedParams: false
+  cppcoreguidelines-rvalue-reference-param-not-moved.IgnoreNonDeducedTemplateTypes: false
+  # TODO: Not released yet cppcoreguidelines-rvalue-reference-param-not-moved.MoveFunction: '::std::move'
+  cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor: false
+  cppcoreguidelines-special-member-functions.AllowMissingMoveFunctions: false
+  cppcoreguidelines-special-member-functions.AllowMissingMoveFunctionsWhenCopyIsDeleted: false
+  cppcoreguidelines-special-member-functions.AllowImplicitlyDeletedCopyOrMove: false
+  # TODO: Not released yet cppcoreguidelines-special-member-functions.IgnoreMacros: false
+  # TODO: Not released yet cppcoreguidelines-use-enum-class.IgnoreUnscopedEnumsInClasses: false
+  google-runtime-int.UnsignedTypePrefix: 'uint'
+  google-runtime-int.SignedTypePrefix: 'int'
+  google-runtime-int.TypeSuffix: ''
+  misc-const-correctness.AnalyzeValues: true
+  misc-const-correctness.AnalyzeReferences: true
+  # TODO: Not released yet misc-const-correctness.AnalyzePointers: true
+  misc-const-correctness.WarnPointersAsValues: true
+  # TODO: Not released yet misc-const-correctness.WarnPointersAsPointers: const
+  misc-const-correctness.TransformValues: true
+  misc-const-correctness.TransformReferences: true
+  misc-const-correctness.TransformPointersAsValues: true
+  # TODO: Not released yet misc-const-correctness.TransformPointersAsPointers: true
+  # TODO: Not released yet misc-const-correctness.AllowedTypes: ''
+  misc-coroutine-hostile-raii.RAIITypesList: 'std::lock_guard;std::scoped_lock'
+  misc-coroutine-hostile-raii.AllowedAwaitablesList: ''
+  misc-header-include-cycle.IgnoredFilesList: ''
+  misc-include-cleaner.IgnoreHeaders: ''
+  misc-include-cleaner.DeduplicateFindings: true
+  # TODO: Not released yet misc-include-cleaner.UnusedIncludes: true
+  # TODO: Not released yet misc-include-cleaner.MissingIncludes: true
+  misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic: false
+  misc-non-private-member-variables-in-classes.IgnorePublicMemberVariables: false
+  # TODO: Not released yet misc-override-with-different-visibility.DisallowedVisibilityChange: 'any'
+  # TODO: Not released yet misc-override-with-different-visibility.CheckDestructors: true
+  # TODO: Not released yet misc-override-with-different-visibility.CheckOperators: false
+  # TODO: Not released yet misc-override-with-different-visibility.IgnoredFunctions: ''
+  misc-throw-by-value-catch-by-reference.CheckThrowTemporaries: true
+  misc-throw-by-value-catch-by-reference.WarnOnLargeObject: true
+  # DEFAULT: misc-throw-by-value-catch-by-reference.MaxSize
+  misc-uniqueptr-reset-release.IncludeStyle: 'llvm'
+  misc-unused-parameters.StrictMode: true
+  misc-unused-parameters.IgnoreVirtual: false
+  misc-use-internal-linkage.FixMode: 'UseStatic'
+  modernize-avoid-bind.PermissiveParameterList: false
+  modernize-avoid-c-arrays.AllowStringArrays: false
+  modernize-deprecated-headers.CheckHeaderFile: true
+  modernize-loop-convert.UseCxx20ReverseRanges: true
+  modernize-loop-convert.MakeReverseRangeFunction: 'ranges::reverse_view'
+  modernize-loop-convert.MakeReverseRangeHeader: ''
+  modernize-loop-convert.IncludeStyle: 'llvm'
+  modernize-make-shared.MakeSmartPtrFunction: 'std::make_shared'
+  modernize-make-shared.MakeSmartPtrFunctionHeader: '<memory>'
+  modernize-make-shared.IncludeStyle: 'llvm'
+  modernize-make-shared.IgnoreMacros: false
+  modernize-make-shared.IgnoreDefaultInitialization: true
+  modernize-make-unique.MakeSmartPtrFunction: 'std::make_unique'
+  modernize-make-unique.MakeSmartPtrFunctionHeader: '<memory>'
+  modernize-make-unique.IncludeStyle: 'llvm'
+  modernize-make-unique.IgnoreMacros: false
+  modernize-make-unique.IgnoreDefaultInitialization: true
+  modernize-min-max-use-initializer-list.IncludeStyle: 'llvm'
+  modernize-min-max-use-initializer-list.IgnoreNonTrivialTypes: false
+  modernize-min-max-use-initializer-list.IgnoreTrivialTypesOfSizeAbove: 32
+  modernize-pass-by-value.IncludeStyle: 'llvm'
+  modernize-pass-by-value.ValuesOnly: false
+  modernize-raw-string-literal.DelimiterStem: 'lit'
+  modernize-raw-string-literal.ReplaceShorterLiterals: false
+  modernize-replace-auto-ptr.IncludeStyle: 'llvm'
+  modernize-replace-disallow-copy-and-assign-macro.MacroName: 'DISALLOW_COPY_AND_ASSIGN'
+  modernize-type-traits.IgnoreMacros: false
+  modernize-use-auto.MinTypeNameLength: 0
+  modernize-use-auto.RemoveStars: false
+  modernize-use-bool-literals.IgnoreMacros: false
+  modernize-use-default-member-init.UseAssignment: false
+  modernize-use-default-member-init.IgnoreMacros: false
+  modernize-use-designated-initializers.IgnoreMacros: false
+  modernize-use-designated-initializers.IgnoreSingleElementAggregates: true
+  modernize-use-designated-initializers.RestrictToPODTypes: false
+  modernize-use-designated-initializers.StrictCStandardCompliance: false
+  modernize-use-designated-initializers.StrictCppStandardCompliance: false
+  # DEFAULT: modernize-use-emplace.ContainersWithPushBack
+  # DEFAULT: modernize-use-emplace.ContainersWithPush
+  # DEFAULT: modernize-use-emplace.ContainersWithPushFront
+  modernize-use-emplace.IgnoreImplicitConstructors: false
+  # DEFAULT: modernize-use-emplace.SmartPointers
+  # DEFAULT: modernize-use-emplace.TupleTypes
+  # DEFAULT: modernize-use-emplace.TupleMakeFunctions
+  # DEFAULT: modernize-use-emplace.EmplacyFunctions
+  modernize-use-equals-default.IgnoreMacros: false
+  modernize-use-equals-delete.IgnoreMacros: false
+  modernize-use-integer-sign-comparison.IncludeStyle: 'llvm'
+  modernize-use-integer-sign-comparison.EnableQtSupport: false
+  # DEFAULT: modernize-use-nodiscard.ReplacementString
+  # DEFAULT: modernize-use-noexcept.ReplacementString
+  modernize-use-noexcept.UseNoexceptFalse: false
+  # DEFAULT: modernize-use-nullptr.IgnoredTypes
+  # DEFAULT: modernize-use-nullptr.NullMacros
+  modernize-use-override.IgnoreDestructors: false
+  modernize-use-override.IgnoreTemplateInstantiations: false
+  modernize-use-override.AllowOverrideAndFinal: false
+  # DEFAULT: modernize-use-override.OverrideSpelling
+  # DEFAULT: modernize-use-override.FinalSpelling
+  modernize-use-ranges.IncludeStyle: 'llvm'
+  modernize-use-ranges.UseReversePipe: true
+  # TODO: Not released yet modernize-use-scoped-lock.WarnOnSingleLocks: true
+  # TODO: Not released yet modernize-use-scoped-lock.WarnOnUsingAndTypedef: true
+  modernize-use-std-format.StrictMode: true
+  modernize-use-std-format.StrFormatLikeFunctions: 'absl::StrFormat'
+  modernize-use-std-format.ReplacementFormatFunction: ''
+  modernize-use-std-format.FormatHeader: '<format>'
+  modernize-use-std-numbers.DiffThreshold: 0.001
+  modernize-use-std-numbers.IncludeStyle: 'llvm'
+  modernize-use-std-print.StrictMode: true
+  modernize-use-std-print.PrintfLikeFunctions: 'printf;absl::PrintF'
+  modernize-use-std-print.FprintfLikeFunctions: 'fprintf;absl::FPrintF'
+  modernize-use-std-print.ReplacementPrintFunction: ''
+  modernize-use-std-print.ReplacementPrintlnFunction: ''
+  modernize-use-std-print.PrintHeader: '<print>'
+  modernize-use-transparent-functors.SafeMode: false
+  modernize-use-using.IgnoreMacros: false
+  modernize-use-using.IgnoreExternC: false
+  performance-enum-size.EnumIgnoreList: ''
+  performance-faster-string-find.StringLikeClasses: '::std::basic_string;::std::basic_string_view'
+  performance-for-range-copy.WarnOnAllAutoCopies: false
+  performance-for-range-copy.AllowedTypes: ''
+  performance-inefficient-string-concatenation.StrictMode: true
+  # DEFAULT: performance-inefficient-vector-operation.VectorLikeClasses
+  performance-inefficient-vector-operation.EnableProto: false
+  performance-move-const-arg.CheckTriviallyCopyableMove: true
+  performance-move-const-arg.CheckMoveToConstRef: true
+  performance-unnecessary-copy-initialization.AllowedTypes: ''
+  performance-unnecessary-copy-initialization.ExcludedContainerTypes: ''
+  performance-unnecessary-value-param.IncludeStyle: 'llvm'
+  performance-unnecessary-value-param.AllowedTypes: ''
+  # TODO: Not released yet performance-unnecessary-value-param.IgnoreCoroutines: false
+  portability-restrict-system-includes.Includes: '*'
+  portability-simd-intrinsics.Suggest: true
+  portability-simd-intrinsics.Std: 'std::'
+  # TODO: Not released yet readiblity-ambiguous-smartptr-reset-call.SmartPointers: '::std::unique_ptr;::std::shared_ptr;::boost::shared_ptr'
+  readability-avoid-const-params-in-decls.IgnoreMacros: false
+  readability-avoid-return-with-void-value.IgnoreMacros: false
+  readability-avoid-return-with-void-value.StrictMode: true
+  readability-braces-around-statements.ShortStatementLines: 2
+  readability-const-return-type.IgnoreMacros: false
+  readability-container-data-pointer.IgnoredContainers: ''
+  readability-container-size-empty.ExcludedComparisonTypes: ''
+  readability-else-after-return.WarnOnUnfixable: true
+  readability-else-after-return.WarnOnConditionVariables: true
+  readability-enum-initial-value.AllowExplicitZeroFirstInitialValue: true
+  readability-enum-initial-value.AllowExplicitSequentialInitialValues: true
+  readability-function-cognitive-complexity.Threshold: 25
+  readability-function-cognitive-complexity.DescribeBasicIncrements: true
+  readability-function-cognitive-complexity.IgnoreMacros: false
+  readability-function-size.LineThreshold: 50
+  readability-function-size.StatementThreshold: 100
+  readability-function-size.BranchThreshold: 10
+  readability-function-size.ParameterThreshold: 5
+  readability-function-size.NestingThreshold: 3
+  readability-function-size.VariableThreshold: 10
+  # TODO: Not released yet readability-function-size.CountMemberInitAsStmt: true
+  readability-identifier-length.MinimumVariableNameLength: 3
+  readability-identifier-length.IgnoredVariableNames: ''
+  readability-identifier-length.MinimumParameterNameLength: 1
+  readability-identifier-length.IgnoredParameterNames: ''
+  readability-identifier-length.MinimumLoopCounterNameLength: 2
+  readability-identifier-length.IgnoredLoopCounterNames: '^[ijk_]$'
+  readability-identifier-length.MinimumExceptionNameLength: 3
+  readability-identifier-length.IgnoredExceptionVariableNames: '^[e]$'
+  readability-identifier-naming.AbstractClassCase: 'CamelCase'
+  readability-identifier-naming.AbstractClassPrefix: 'A'
+  readability-identifier-naming.AbstractClassIgnoredRegexp: ''
+  readability-identifier-naming.AbstractClassSuffix: ''
+  readability-identifier-naming.AbstractClassHungarianPrefix: 'Off'
+  readability-identifier-naming.AggressiveDependentMemberLookup: true
+  readability-identifier-naming.CheckAnonFieldInParent: false
+  readability-identifier-naming.ClassCase: 'CamelCase'
+  readability-identifier-naming.ClassPrefix: ''
+  readability-identifier-naming.ClassIgnoredRegexp: ''
+  readability-identifier-naming.ClassSuffix: ''
+  readability-identifier-naming.ClassHungarianPrefix: 'Off'
+  readability-identifier-naming.ClassConstantCase: 'UPPER_CASE'
+  readability-identifier-naming.ClassConstantPrefix: ''
+  readability-identifier-naming.ClassConstantIgnoredRegexp: ''
+  readability-identifier-naming.ClassConstantSuffix: ''
+  readability-identifier-naming.ClassConstantHungarianPrefix: 'Off'
+  readability-identifier-naming.ClassMemberCase: 'lower_case'
+  readability-identifier-naming.ClassMemberPrefix: ''
+  readability-identifier-naming.ClassMemberIgnoredRegexp: ''
+  readability-identifier-naming.ClassMemberSuffix: ''
+  readability-identifier-naming.ClassMemberHungarianPrefix: 'Off'
+  readability-identifier-naming.ClassMethodCase: 'lower_case'
+  readability-identifier-naming.ClassMethodPrefix: ''
+  readability-identifier-naming.ClassMethodIgnoredRegexp: ''
+  readability-identifier-naming.ClassMethodSuffix: ''
+  readability-identifier-naming.ClassMethodHungarianPrefix: 'Off'
+  readability-identifier-naming.ConceptCase: 'CamelCase'
+  readability-identifier-naming.ConceptPrefix: ''
+  readability-identifier-naming.ConceptIgnoredRegexp: ''
+  readability-identifier-naming.ConceptSuffix: ''
+  readability-identifier-naming.ConceptHungarianPrefix: 'Off'
+  readability-identifier-naming.ConstantCase: 'lower_case'
+  readability-identifier-naming.ConstantPrefix: ''
+  readability-identifier-naming.ConstantIgnoredRegexp: ''
+  readability-identifier-naming.ConstantSuffix: ''
+  readability-identifier-naming.ConstantHungarianPrefix: 'Off'
+  readability-identifier-naming.ConstantMemberCase: 'lower_case'
+  readability-identifier-naming.ConstantMemberPrefix: ''
+  readability-identifier-naming.ConstantMemberIgnoredRegexp: ''
+  readability-identifier-naming.ConstantMemberSuffix: ''
+  readability-identifier-naming.ConstantMemberHungarianPrefix: 'Off'
+  readability-identifier-naming.ConstantParameterCase: 'lower_case'
+  readability-identifier-naming.ConstantParameterPrefix: ''
+  readability-identifier-naming.ConstantParameterIgnoredRegexp: ''
+  readability-identifier-naming.ConstantParameterSuffix: '_'
+  readability-identifier-naming.ConstantParameterHungarianPrefix: 'Off'
+  readability-identifier-naming.ConstantPointerParameterCase: 'lower_case'
+  readability-identifier-naming.ConstantPointerParameterPrefix: ''
+  readability-identifier-naming.ConstantPointerParameterIgnoredRegexp: ''
+  readability-identifier-naming.ConstantPointerParameterSuffix: ''
+  readability-identifier-naming.ConstantPointerParameterHungarianPrefix: 'Off'
+  readability-identifier-naming.ConstexprFunctionCase: 'lower_case'
+  readability-identifier-naming.ConstexprFunctionPrefix: ''
+  readability-identifier-naming.ConstexprFunctionIgnoredRegexp: ''
+  readability-identifier-naming.ConstexprFunctionSuffix: ''
+  readability-identifier-naming.ConstexprMethodCase: 'lower_case'
+  readability-identifier-naming.ConstexprMethodPrefix: ''
+  readability-identifier-naming.ConstexprMethodIgnoredRegexp: ''
+  readability-identifier-naming.ConstexprMethodSuffix: ''
+  readability-identifier-naming.ConstexprVariableCase: 'lower_case'
+  readability-identifier-naming.ConstexprVariablePrefix: ''
+  readability-identifier-naming.ConstexprVariableIgnoredRegexp: ''
+  readability-identifier-naming.ConstexprVariableSuffix: ''
+  readability-identifier-naming.ConstexprVariableHungarianPrefix: 'Off'
+  readability-identifier-naming.EnumCase: 'CamelCase'
+  readability-identifier-naming.EnumPrefix: ''
+  readability-identifier-naming.EnumIgnoredRegexp: ''
+  readability-identifier-naming.EnumSuffix: ''
+  readability-identifier-naming.EnumConstantCase: 'UPPER_CASE'
+  readability-identifier-naming.EnumConstantPrefix: ''
+  readability-identifier-naming.EnumConstantIgnoredRegexp: ''
+  readability-identifier-naming.EnumConstantSuffix: ''
+  readability-identifier-naming.EnumConstantHungarianPrefix: 'Off'
+  readability-identifier-naming.FunctionCase: 'lower_case'
+  readability-identifier-naming.FunctionPrefix: ''
+  readability-identifier-naming.FunctionIgnoredRegexp: ''
+  readability-identifier-naming.FunctionSuffix: ''
+  readability-identifier-naming.GetConfigPerFile: true
+  readability-identifier-naming.GlobalConstantCase: 'UPPER_CASE'
+  readability-identifier-naming.GlobalConstantPrefix: ''
+  readability-identifier-naming.GlobalConstantIgnoredRegexp: ''
+  readability-identifier-naming.GlobalConstantSuffix: ''
+  readability-identifier-naming.GlobalConstantHungarianPrefix: 'Off'
+  readability-identifier-naming.GlobalConstantPointerCase: 'UPPER_CASE'
+  readability-identifier-naming.GlobalConstantPointerPrefix: ''
+  readability-identifier-naming.GlobalConstantPointerIgnoredRegexp: ''
+  readability-identifier-naming.GlobalConstantPointerSuffix: ''
+  readability-identifier-naming.GlobalConstantPointerHungarianPrefix: 'Off'
+  readability-identifier-naming.GlobalFunctionCase: 'lower_case'
+  readability-identifier-naming.GlobalFunctionPrefix: ''
+  readability-identifier-naming.GlobalFunctionIgnoredRegexp: ''
+  readability-identifier-naming.GlobalFunctionSuffix: ''
+  readability-identifier-naming.GlobalPointerCase: 'lower_case'
+  readability-identifier-naming.GlobalPointerPrefix: 'g_'
+  readability-identifier-naming.GlobalPointerIgnoredRegexp: ''
+  readability-identifier-naming.GlobalPointerSuffix: ''
+  readability-identifier-naming.GlobalPointerHungarianPrefix: 'Off'
+  readability-identifier-naming.GlobalVariableCase: 'lower_case'
+  readability-identifier-naming.GlobalVariablePrefix: 'g_'
+  readability-identifier-naming.GlobalVariableIgnoredRegexp: ''
+  readability-identifier-naming.GlobalVariableSuffix: ''
+  readability-identifier-naming.GlobalVariableHungarianPrefix: 'Off'
+  readability-identifier-naming.IgnoreMainLikeFunctions: false
+  readability-identifier-naming.InlineNamespaceCase: 'lower_case'
+  readability-identifier-naming.InlineNamespacePrefix: ''
+  readability-identifier-naming.InlineNamespaceIgnoredRegexp: ''
+  readability-identifier-naming.InlineNamespaceSuffix: ''
+  readability-identifier-naming.LocalConstantCase: 'lower_case'
+  readability-identifier-naming.LocalConstantPrefix: ''
+  readability-identifier-naming.LocalConstantIgnoredRegexp: ''
+  readability-identifier-naming.LocalConstantSuffix: ''
+  readability-identifier-naming.LocalConstantHungarianPrefix: 'Off'
+  readability-identifier-naming.LocalConstantPointerCase: 'lower_case'
+  readability-identifier-naming.LocalConstantPointerPrefix: ''
+  readability-identifier-naming.LocalConstantPointerIgnoredRegexp: ''
+  readability-identifier-naming.LocalConstantPointerSuffix: ''
+  readability-identifier-naming.LocalConstantPointerHungarianPrefix: 'Off'
+  readability-identifier-naming.LocalPointerCase: 'lower_case'
+  readability-identifier-naming.LocalPointerPrefix: ''
+  readability-identifier-naming.LocalPointerIgnoredRegexp: ''
+  readability-identifier-naming.LocalPointerSuffix: ''
+  readability-identifier-naming.LocalPointerHungarianPrefix: 'Off'
+  readability-identifier-naming.LocalVariableCase: 'lower_case'
+  readability-identifier-naming.LocalVariablePrefix: ''
+  readability-identifier-naming.LocalVariableIgnoredRegexp: ''
+  readability-identifier-naming.LocalVariableSuffix: ''
+  readability-identifier-naming.LocalVariableHungarianPrefix: 'Off'
+  readability-identifier-naming.MacroDefinitionCase: 'UPPER_CASE'
+  readability-identifier-naming.MacroDefinitionPrefix: ''
+  readability-identifier-naming.MacroDefinitionIgnoredRegexp: ''
+  readability-identifier-naming.MacroDefinitionSuffix: ''
+  readability-identifier-naming.MemberCase: 'lower_case'
+  readability-identifier-naming.MemberPrefix: 'm_'
+  readability-identifier-naming.MemberIgnoredRegexp: ''
+  readability-identifier-naming.MemberSuffix: ''
+  readability-identifier-naming.MemberHungarianPrefix: 'Off'
+  readability-identifier-naming.MethodCase: 'lower_case'
+  readability-identifier-naming.MethodPrefix: ''
+  readability-identifier-naming.MethodIgnoredRegexp: ''
+  readability-identifier-naming.MethodSuffix: ''
+  readability-identifier-naming.NamespaceCase: 'lower_case'
+  readability-identifier-naming.NamespacePrefix: ''
+  readability-identifier-naming.NamespaceIgnoredRegexp: ''
+  readability-identifier-naming.NamespaceSuffix: ''
+  readability-identifier-naming.ParameterCase: 'lower_case'
+  readability-identifier-naming.ParameterPrefix: ''
+  readability-identifier-naming.ParameterIgnoredRegexp: ''
+  readability-identifier-naming.ParameterSuffix: '_'
+  readability-identifier-naming.ParameterHungarianPrefix: 'Off'
+  readability-identifier-naming.ParameterPackCase: 'lower_case'
+  readability-identifier-naming.ParameterPackPrefix: ''
+  readability-identifier-naming.ParameterPackIgnoredRegexp: ''
+  readability-identifier-naming.ParameterPackSuffix: '_'
+  readability-identifier-naming.ParameterPackHungarianPrefix: 'Off'
+  readability-identifier-naming.PointerParameterCase: 'lower_case'
+  readability-identifier-naming.PointerParameterPrefix: ''
+  readability-identifier-naming.PointerParameterIgnoredRegexp: ''
+  readability-identifier-naming.PointerParameterSuffix: '_'
+  readability-identifier-naming.PointerParameterHungarianPrefix: 'Off'
+  readability-identifier-naming.PrivateMemberCase: 'lower_case'
+  readability-identifier-naming.PrivateMemberPrefix: 'm_'
+  readability-identifier-naming.PrivateMemberIgnoredRegexp: ''
+  readability-identifier-naming.PrivateMemberSuffix: ''
+  readability-identifier-naming.PrivateMemberHungarianPrefix: 'Off'
+  readability-identifier-naming.PrivateMethodCase: 'lower_case'
+  readability-identifier-naming.PrivateMethodPrefix: ''
+  readability-identifier-naming.PrivateMethodIgnoredRegexp: ''
+  readability-identifier-naming.PrivateMethodSuffix: ''
+  readability-identifier-naming.ProtectedMemberCase: 'lower_case'
+  readability-identifier-naming.ProtectedMemberPrefix: 'm_'
+  readability-identifier-naming.ProtectedMemberIgnoredRegexp: ''
+  readability-identifier-naming.ProtectedMemberSuffix: ''
+  readability-identifier-naming.ProtectedMemberHungarianPrefix: 'Off'
+  readability-identifier-naming.ProtectedMethodCase: 'lower_case'
+  readability-identifier-naming.ProtectedMethodPrefix: ''
+  readability-identifier-naming.ProtectedMethodIgnoredRegexp: ''
+  readability-identifier-naming.ProtectedMethodSuffix: ''
+  readability-identifier-naming.PublicMemberCase: 'lower_case'
+  readability-identifier-naming.PublicMemberPrefix: ''
+  readability-identifier-naming.PublicMemberIgnoredRegexp: ''
+  readability-identifier-naming.PublicMemberSuffix: ''
+  readability-identifier-naming.PublicMemberHungarianPrefix: 'Off'
+  readability-identifier-naming.PublicMethodCase: 'lower_case'
+  readability-identifier-naming.PublicMethodPrefix: ''
+  readability-identifier-naming.PublicMethodIgnoredRegexp: ''
+  readability-identifier-naming.PublicMethodSuffix: ''
+  readability-identifier-naming.ScopedEnumConstantCase: 'UPPER_CASE'
+  readability-identifier-naming.ScopedEnumConstantPrefix: ''
+  readability-identifier-naming.ScopedEnumConstantIgnoredRegexp: ''
+  readability-identifier-naming.ScopedEnumConstantSuffix: ''
+  readability-identifier-naming.ScopedEnumConstantHungarianPrefix: 'Off'
+  readability-identifier-naming.StaticConstantCase: 'UPPER_CASE'
+  readability-identifier-naming.StaticConstantPrefix: ''
+  readability-identifier-naming.StaticConstantIgnoredRegexp: ''
+  readability-identifier-naming.StaticConstantSuffix: ''
+  readability-identifier-naming.StaticConstantHungarianPrefix: 'Off'
+  readability-identifier-naming.StaticVariableCase: 'lower_case'
+  readability-identifier-naming.StaticVariablePrefix: ''
+  readability-identifier-naming.StaticVariableIgnoredRegexp: ''
+  readability-identifier-naming.StaticVariableSuffix: ''
+  readability-identifier-naming.StaticVariableHungarianPrefix: 'Off'
+  readability-identifier-naming.StructCase: 'CamelCase'
+  readability-identifier-naming.StructPrefix: ''
+  readability-identifier-naming.StructIgnoredRegexp: ''
+  readability-identifier-naming.StructSuffix: ''
+  readability-identifier-naming.TemplateParameterCase: 'CamelCase'
+  readability-identifier-naming.TemplateParameterPrefix: ''
+  readability-identifier-naming.TemplateParameterIgnoredRegexp: ''
+  readability-identifier-naming.TemplateParameterSuffix: ''
+  readability-identifier-naming.TemplateTemplateParameterCase: 'CamelCase'
+  readability-identifier-naming.TemplateTemplateParameterPrefix: ''
+  readability-identifier-naming.TemplateTemplateParameterIgnoredRegexp: ''
+  readability-identifier-naming.TemplateTemplateParameterSuffix: ''
+  readability-identifier-naming.TypeAliasCase: 'lower_case'
+  readability-identifier-naming.TypeAliasPrefix: ''
+  readability-identifier-naming.TypeAliasIgnoredRegexp: ''
+  readability-identifier-naming.TypeAliasSuffix: ''
+  readability-identifier-naming.TypedefCase: 'lower_case'
+  readability-identifier-naming.TypedefPrefix: ''
+  readability-identifier-naming.TypedefIgnoredRegexp: ''
+  readability-identifier-naming.TypedefSuffix: ''
+  readability-identifier-naming.TypeTemplateParameterCase: 'CamelCase'
+  readability-identifier-naming.TypeTemplateParameterPrefix: ''
+  readability-identifier-naming.TypeTemplateParameterIgnoredRegexp: ''
+  readability-identifier-naming.TypeTemplateParameterSuffix: ''
+  readability-identifier-naming.UnionCase: 'CamelCase'
+  readability-identifier-naming.UnionPrefix: ''
+  readability-identifier-naming.UnionIgnoredRegexp: ''
+  readability-identifier-naming.UnionSuffix: ''
+  readability-identifier-naming.ValueTemplateParameterCase: 'lower_case'
+  readability-identifier-naming.ValueTemplateParameterPrefix: ''
+  readability-identifier-naming.ValueTemplateParameterIgnoredRegexp: ''
+  readability-identifier-naming.ValueTemplateParameterSuffix: ''
+  readability-identifier-naming.VariableCase: 'lower_case'
+  readability-identifier-naming.VariablePrefix: ''
+  readability-identifier-naming.VariableIgnoredRegexp: ''
+  readability-identifier-naming.VariableSuffix: ''
+  readability-identifier-naming.VariableHungarianPrefix: 'Off'
+  readability-identifier-naming.VirtualMethodCase: 'lower_case'
+  readability-identifier-naming.VirtualMethodPrefix: ''
+  readability-identifier-naming.VirtualMethodIgnoredRegexp: ''
+  readability-identifier-naming.VirtualMethodSuffix: ''
+  readability-implicit-bool-conversion.AllowIntegerConditions: false
+  readability-implicit-bool-conversion.AllowPointerConditions: false
+  readability-implicit-bool-conversion.UseUpperCaseLiteralSuffix: false
+  readability-inconsistent-declaration-parameter-name.IgnoreMacros: false
+  readability-inconsistent-declaration-parameter-name.Strict: true
+  readability-magic-numbers.IgnoredIntegerValues: '1;2'
+  readability-magic-numbers.IgnorePowersOf2IntegerValues: false
+  readability-magic-numbers.IgnoredFloatingPointValues: '1.0;100.0'
+  readability-magic-numbers.IgnoreAllFloatingPointValues: false
+  readability-magic-numbers.IgnoreBitFieldsWidths: true
+  readability-magic-numbers.IgnoreTypeAliases: false
+  readability-magic-numbers.IgnoreUserDefinedLiterals: false
+  # TODO: Not released yet readability-named-parameter.InsertPlainNamesInForwardDecls: false
+  readability-operators-representation.BinaryOperators: ''
+  readability-operators-representation.OverloadedOperators: ''
+  readability-qualified-auto.AddConstToQualified: true
+  # TODO: Not released yet readability-qualified-auto.AllowedTypes: ''
+  # TODO: Not released yet readability-qualified-auto.IgnoreAliasing: true
+  readability-redundant-access-specifiers.CheckFirstDeclaration: false
+  readability-redundant-casting.IgnoreMacros: false
+  readability-redundant-casting.IgnoreTypeAliases: false
+  readability-redundant-declaration.IgnoreMacros: false
+  readability-redundant-inline-specifier.StrictMode: true
+  readability-redundant-member-init.IgnoreBaseInCopyConstructors: false
+  readability-redundant-smartptr-get.IgnoreMacros: false
+  readability-redundant-string-cstr.StringParameterFunctions: ''
+  readability-redundant-string-init.StringNames: '::std::basic_string;::std::basic_string_view'
+  readability-simplify-boolean-expr.IgnoreMacros: false
+  readability-simplify-boolean-expr.ChainedConditionalReturn: true
+  readability-simplify-boolean-expr.ChainedConditionalAssignment: true
+  readability-simplify-boolean-expr.SimplifyDeMorgan: true
+  readability-simplify-boolean-expr.SimplifyDeMorganRelaxed: false
+  # DEFAULT: readability-simplify-subscript-expr.Types
+  readability-string-compare.StringLikeClasses: '::std::basic_string;::std::basic_string_view'
+  readability-suspicious-call-argument.MinimumIdentifierNameLength: 3
+  # DEFAULT: readability-suspicious-call-argument.Abbreviations
+  readability-uniqueptr-delete-release.PreferResetCall: true
+  # DEFAULT: readability-uppercase-literal-suffix.NewSuffixes
+  readability-uppercase-literal-suffix.IgnoreMacros: false
+ExcludeHeaderFilterRegex: ''
+ExtraArgs: []
+ExtraArgsBefore: []
+FormatStyle: 'file'
+HeaderFileExtensions: ['h', 'hh', 'hpp', 'hxx']
+HeaderFilterRegex: ''
+ImplementationFileExtensions: ['c', 'cc', 'cpp', 'cpp']
+InheritParentConfig: true
+SystemHeaders: false
+UseColor: true
+User: '0xdeadbeaf'
+WarningsAsErrors: ''
