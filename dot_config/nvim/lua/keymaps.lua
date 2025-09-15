@@ -5,7 +5,9 @@ local opts = {
 
 -- AZERTY fixes
 vim.keymap.set("n", "z", "w", opts) -- Move to next word
+vim.keymap.set("n", "Z", "W", opts) -- Move to next WORD
 vim.keymap.set("n", "q", "a", opts) -- Enter insert mode after the cursor
+vim.keymap.set("n", "Q", "A", opts) -- Enter insert mode at the end of a line
 
 -- Some nice bindings
 vim.keymap.set("n", "<C-t>", ">>", opts) -- Adds a level of tabulation to the current line
