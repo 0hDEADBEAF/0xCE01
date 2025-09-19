@@ -26,6 +26,18 @@ require("lazy").setup({
         opts = {}
     },
 
+    -- Telescope
+    {
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sharkdp/fd",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        }
+    },
+
     -- Scrollbar (with preview)
     {
         "lewis6991/satellite.nvim",

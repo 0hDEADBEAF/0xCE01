@@ -2,6 +2,9 @@ local opts = {
     noremap = true,
     silent = true,
 }
+local builtin = require("telescope.builtin")
+
+vim.g.mapleader = " " -- Set leader key
 
 -- AZERTY fixes
 vim.keymap.set("n", "z", "w", opts) -- Move to next word
@@ -27,3 +30,9 @@ vim.keymap.set("n", "gl", ":Gitsigns preview_hunk<CR>", opts) -- Show current ch
 
 -- LSP
 vim.keymap.set("n", "qf", vim.lsp.buf.code_action, opts) -- Show available quickfixes to apply for current line
+
+-- Telescope bindings
+vim.keymap.set("n", "<leader>ff", builtin.find_files, opts) -- Find files by name
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, opts) -- Find files using ripgrep
+vim.keymap.set("n", "<leader>fb", builtin.buffers, opts) -- Find files among opened buffers
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, opts) -- Show help for Telescope
