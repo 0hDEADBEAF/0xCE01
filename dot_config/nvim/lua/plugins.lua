@@ -38,6 +38,14 @@ require("lazy").setup({
         }
     },
 
+    -- Typst preview
+    {
+        "chomosuke/typst-preview.nvim",
+        lazy = false,
+        version = "1.*",
+        opts = {}
+    },
+
     -- Scrollbar (with preview)
     {
         "lewis6991/satellite.nvim",
