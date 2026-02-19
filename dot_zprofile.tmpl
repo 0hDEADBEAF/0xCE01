@@ -1,0 +1,17 @@
+TARGET_USER={{ .chezmoi.username }}
+
+# Define the zprofile path
+ZPROFILE="/home/$TARGET_USER/.zprofile"
+
+# 3. Append the launch logic to .zprofile
+cat << 'EOF' >> "$ZPROFILE"
+
+# Check if we are on tty1 and if Hyprland isn't already running
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    start-hyprland
+fi
+EOF
+
+# 4. Fix permissions so the user owns their own file
+chown "$TARGET_USER:$TARGET_USER" "$ZPROFILE"
+
