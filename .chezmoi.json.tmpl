@@ -1,15 +1,16 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $github_username := promptStringOnce . "github_username" "Github username" -}}
 {{- $signing_key := promptStringOnce . "signing_key" "Signing key" -}}
-{{- $bitwarden_access_token := promptStringOnce . "accessToken" "Bitwarden access token" -}}
+{{- $bitwarden_access_token := promptStringOnce . "bitwarden_access_token" "Bitwarden access token" -}}
+{{- $monitor_scale := promptIntOnce . "monitor_scale" "Monitor scale" -}}
 
 {
     "bitwarden" : {
         "unlock": "auto"
     },
     "data": {
-        "accessToken": {{ $bitwarden_access_token | quote }},
-        "sizes": {{ output "python" "set_sizes.py" }},
+        "bitwarden_access_token": {{ $bitwarden_access_token | quote }},
+        "scale": {{ $monitor_scale | quote }},
         "email": {{ $email | quote }},
         "github_username": {{ $github_username | quote }},
         "signing_key": {{ $signing_key | quote }},
