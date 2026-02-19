@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Installing Steam
+sudo pacman -S steam-native-runtime
+yay -S steamcmd
+steam_username={{ (bitwardenSecrets "a5975f8e-a24e-4db9-a500-b34f0160c78a" .bitwarden_access_token).value }}
+steamcmd +force_install_dir /home/deadbeaf/games/fez +login $steam_username +app_update 224760 +quit
+steamcmd +force_install_dir /home/deadbeaf/games/dominion +login $steam_username +app_update 1131620 +quit

@@ -1,25 +1,6 @@
 #!/bin/bash
 
-# Enable multilib repository (needed for Steam dependencies)
-sudo sed -i '/^#\[multilib\]/,/^#Include/s/^#//' /etc/pacman.conf
-
-# Update packages/system
-sudo pacman -Syu
-
-# Install yay
-mkdir -p ~/src
-cd ~/src
-if [ ! -d "yay" ]; then
-    sudo pacman -S --needed git base-devel
-    git clone https://aur.archlinux.org/yay-git ~/src/yay
-    cd yay
-    makepkg -si
-fi
-
-# Update yay packages
-yay
-
-# Install packages
+# hyprland: Best wayland compositor!
 # git: Of course!
 # lazygit: What a nice tool!
 # kitty: My favorite terminal
@@ -34,13 +15,10 @@ yay
 # yazi: My favorite file manager
 # zsh: My favorite shell
 # fzf: A very nice tool :D
-# xcursor-hackneyed-light: My favorite cursor
 # rustup: To manage Rust toolchains & all
 # python: All my homies love Python!
 # python-pip: Python's package manager
 # python-requests: requests package (used to communicate with Youtube Music API server)
-# ags-hyprpanel-git: A nice tool for status bar & widgets
-# youtube-music-bin: A Youtube Music client with an ad blocker, downloader & a lot of plugins
 # less: A nice command to have!
 # otf-departure-mono: A nice looking old school font!
 # hyprlock: A nice lock screen software
@@ -62,7 +40,19 @@ yay
 # uv: Best project manager for Python (poetry is nice too :3)
 # ruff: Astral FTW
 # fuse2: Required for AppImage files (Dofus)
+# wget: Very useful command to fetch content from Internet
+# swww: Required for Hyprpanel
+# brightnessctl: Required for Hyprpanel
+# python-dbus: Required for Hyprpanel
+# python-gobject: Required for Hyprpanel
+# typst: A better LaTeX
+# tinymist: Typst LSP server
+# typstyle: Typst formatter
+# pear-desktop: A Yout- totally normal music client, with adblocker, downloader and tons of plugins
+# quickshell: A nice status bar for Hyprland
+# xdg-desktop-portal: To avoid warnings with Qt
 yay -Sy \
+    hyprland \
     git \
     lazygit \
     kitty \
@@ -77,13 +67,10 @@ yay -Sy \
     yazi \
     zsh \
     fzf \
-    xcursor-hackneyed-light \
     rustup \
     python \
     python-pip \
     python-requests \
-    ags-hyprpanel-git \
-    youtube-music-bin \
     less \
     otf-departure-mono \
     hyprlock \
@@ -94,7 +81,6 @@ yay -Sy \
     ddcutil \
     imagemagick \
     torbrowser-launcher \
-    wlr-randr \
     unzip \
     clang \
     noto-fonts \
@@ -103,41 +89,16 @@ yay -Sy \
     luarocks \
     uv \
     ruff \
-    fuse2
-
-# Installing rocm-smi-lib only if the computer uses a AMD GPU (so it can be displayed in btop)
-is_amd_gpu=$(lspci -k | grep -A 2 -E '(VGA|3D)' | grep 'Kernel driver in use: amdgpu')
-if [ -n "$is_amd_gpu" ]; then
-    yay -Sy rocm-smi-lib
-fi
-
-# Installing Dofus
-if [ ! -f "/home/deadbeaf/games/Dofus.AppImage" ]; then
-    mkdir -p ~/games
-    wget https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage -O ~/games/Dofus.AppImage
-    chmod +x ~/games/Dofus.AppImage
-fi
-
-# Installing Steam
-sudo pacman -S steam-native-runtime
-yay -S steamcmd
-steam_username={{ (bitwardenSecrets "a5975f8e-a24e-4db9-a500-b34f0160c78a" .accessToken).value }}
-steamcmd +force_install_dir /home/deadbeaf/games/fez +login $steam_username +app_update 224760 +quit
-steamcmd +force_install_dir /home/deadbeaf/games/dominion +login $steam_username +app_update 1131620 +quit
-
-# Installing ty (Astral LS)
-uv tool install ty@latest
-uv tool update-shell
-
-# Setting default Rust toolchain to stable
-rustup default stable
-
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Setup fzf for zsh
-zsh -c "source <(fzf --zsh)"
-
-# Enabling required services
-sudo systemctl enable bluetooth.service
+    fuse2 \
+    wget \
+    swww \
+    brightnessctl \
+    python-dbus \
+    python-gobject \
+    typst \
+    tinymist \
+    typstyle \
+    pear-desktop \
+    quickshell \
+    xdg-desktop-portal
 
